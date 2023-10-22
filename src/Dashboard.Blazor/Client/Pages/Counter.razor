@@ -1,4 +1,4 @@
-﻿@page "/counter"
+@page "/counter"
 
 <PageTitle>Counter</PageTitle>
 
@@ -8,11 +8,19 @@
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
+<RadzenButton Text="@text" Click="@ButtonClicked"></RadzenButton>
+
 @code {
     private int currentCount = 0;
+    string text = "Hi";
 
     private void IncrementCount()
     {
         currentCount++;
+    }
+
+    void ButtonClicked()
+    {
+        //
     }
 }
