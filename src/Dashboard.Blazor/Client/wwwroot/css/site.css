@@ -32,12 +32,12 @@ header {
     border-bottom: calc(var(--stroke-width) * 3px) solid var(--accent-fill-rest)
 }
 
-    header .logo {
-        width: 108px;
-        height: 23px;
-        padding: 0 30px;
-        grid-column: 1;
-    }
+  header .logo {
+    width: 150px;
+    height: 23px;
+    padding: 0 30px;
+    grid-column: 1;
+  }
     
     header .notifications {
         grid-column: 3;
@@ -85,20 +85,6 @@ footer {
         grid-column: 2;
         justify-content: start;
     }
-
-        footer .version a {
-            color: var(--neutral-foreground-rest);
-            text-decoration: none;
-        }
-
-            footer .version a:focus {
-                outline: 1px dashed;
-                outline-offset: 3px;
-            }
-
-            footer .version a:hover {
-                text-decoration: underline;
-            }
 
     footer .copy {
         grid-column: 3;
@@ -181,13 +167,12 @@ aside {
 #menu-toggle {
     display: none;
 }
-
 .menu-icon {
     display: none;
 }
 
 #menu-toggle:checked > nav {
-    width: 0px;
+  width: 0px;
 }
 
 [dir="rtl"] #menu-toggle:checked ~ nav {
