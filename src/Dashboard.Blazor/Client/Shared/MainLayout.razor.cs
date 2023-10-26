@@ -16,7 +16,6 @@ public partial class MainLayout : IAsyncDisposable
 
     private bool _mobile;
     private string? _prevUri;
-    private TableOfContents? _toc;
 
     ElementReference container;
 
@@ -80,13 +79,6 @@ public partial class MainLayout : IAsyncDisposable
                 await AccentBaseColor.WithDefault(_selectedColorOption.ToAttributeValue()!.ToSwatch());
             }
         }
-    }
-
-    public EventCallback OnRefreshTableOfContents => EventCallback.Factory.Create(this, RefreshTableOfContents);
-
-    private async Task RefreshTableOfContents()
-    {
-        await _toc!.Refresh();
     }
 
     private void HandleChecked()

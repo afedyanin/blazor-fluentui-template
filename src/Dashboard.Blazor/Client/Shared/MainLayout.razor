@@ -22,13 +22,15 @@
                     </g>
                 </g>
             </svg>
-
         </div>
         <div class="notifications">
             <NotificationCenter />
         </div>
         <div class="settings">
             <SiteSettings />
+        </div>
+        <div class="profile">
+            <UserProfile />
         </div>
     </header>
     <main>
@@ -46,9 +48,7 @@
             
                 <ErrorBoundary @ref="errorBoundary">
                     <ChildContent>
-                        <CascadingValue Value=@OnRefreshTableOfContents>
-                            @Body
-                        </CascadingValue>
+                        @Body
                     </ChildContent>
                     <ErrorContent Context="ex">
                         <div class="blazor-error-boundary">@ex.Message</div>
@@ -56,7 +56,6 @@
                 </ErrorBoundary>
             </article>
             <aside>
-                <TableOfContents @ref=_toc />
                 <ConsoleLog />
             </aside>
         </div>

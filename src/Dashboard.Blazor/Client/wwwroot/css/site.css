@@ -1,4 +1,4 @@
-﻿@import '/_content/Microsoft.Fast.Components.FluentUI/css/reboot.css';
+@import '/_content/Microsoft.Fast.Components.FluentUI/css/reboot.css';
 
 /* Hide any web components that haven't been started */
 :not(:defined), .before-started {
@@ -49,6 +49,14 @@ header {
 
     header .settings {
         grid-column: 4;
+        justify-self: end;
+        padding: 0 20px 0 0;
+        display: flex;
+        align-items: center;
+    }
+
+    header .profile {
+        grid-column: 5;
         justify-self: end;
         padding: 0 20px 0 0;
         display: flex;

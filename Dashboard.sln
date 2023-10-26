@@ -14,11 +14,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{6C2A47
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dashboard.Blazor.Server", "src\Dashboard.Blazor\Server\Dashboard.Blazor.Server.csproj", "{D96F9344-72BB-4288-A690-F48D2DE822EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dashboard.Blazor.Server", "src\Dashboard.Blazor\Server\Dashboard.Blazor.Server.csproj", "{D96F9344-72BB-4288-A690-F48D2DE822EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dashboard.Blazor.Client", "src\Dashboard.Blazor\Client\Dashboard.Blazor.Client.csproj", "{388DD8F4-450F-4915-84CC-1A7665AAA583}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dashboard.Blazor.Client", "src\Dashboard.Blazor\Client\Dashboard.Blazor.Client.csproj", "{388DD8F4-450F-4915-84CC-1A7665AAA583}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dashboard.Blazor.Shared", "src\Dashboard.Blazor\Shared\Dashboard.Blazor.Shared.csproj", "{96A5A8CE-3B49-4DBD-9E51-B4E3C8257562}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dashboard.Blazor.Shared", "src\Dashboard.Blazor\Shared\Dashboard.Blazor.Shared.csproj", "{96A5A8CE-3B49-4DBD-9E51-B4E3C8257562}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
