@@ -1,3 +1,4 @@
+using Dashboard.Blazor.Client.SampleData;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Fast.Components.FluentUI;
@@ -17,6 +18,8 @@ public class Program
         {
             options.HostingModel = BlazorHostingModel.WebAssembly;
         });
+
+        builder.Services.AddScoped<DataSource>();
 
         await builder.Build().RunAsync();
     }

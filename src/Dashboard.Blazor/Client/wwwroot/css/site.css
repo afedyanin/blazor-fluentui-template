@@ -21,7 +21,7 @@ body {
 }
 
 header {
-    padding: 12px 0;
+    padding: 8px 0;
     background-color: var(--neutral-layer-4);
     grid-area: header;
     display: grid;

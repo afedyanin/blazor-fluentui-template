@@ -7,20 +7,6 @@
 
 <h1>Toast</h1>
 
-<p>
-    Toasts, referred to as “notifications” in the UI, are pop-up notifications that keeps users informed by briefly:
-    <ul>
-        <li>Confirming an action they took.</li>
-        <li>Informing them about a timely event.</li>
-        <li>Communicating the status of a process initiated.</li>
-    </ul>
-</p>
-<p>
-    The information in a toast is useful and relevant but never critical.
-</p>
-
-<h2 id="example">Examples</h2>
-
 <DemoSection Title="Default Toast" Component="typeof(ToastDefault)"></DemoSection>
 
 <DemoSection Title="Toast with options" Component="typeof(ToastDetailled)"></DemoSection>
@@ -41,35 +27,3 @@
 </DemoSection>
 
 <DemoSection Title="Remove queued toasts" Component="typeof(ToastClearQueue)" ShowDownloads=false></DemoSection>
-
-<h2 id="toastcontainer">Toast container</h2>
-
-<strong>IMPORTANT!!</strong>
-<p>
-    Toasts are rendered through the <code>&lt;FluentToastContainer /&gt;</code> component. This component needs to be added to the main layout of your application/site.
-    You typically do this in the <code>MainLayout.razor</code> file at the end of the <code>&lt;main&gt;</code> section like this:
-</p>
-<CodeSnippet>
-    &lt;main&gt;
-        &lt;nav&gt;
-        :
-        &lt;/nav&gt;
-        &lt;div class=&quot;content&quot;&gt;
-            &lt;article id=&quot;article&quot;&gt;
-                @@Body
-            &lt;/article&gt;
-        &lt;/div&gt;
-        &lt;FluentToastContainer MaxToastCount=&quot;10&quot; /&gt;
-    &lt;/main&gt;
-</CodeSnippet>
-
-<p>
-    See the documentation below for more information about the <code>FluentToastContainer</code> parameters.
-</p>
-
-<h2 id="documentation">Documentation</h2>
-
-<ApiDocumentation Component="typeof(FluentToastContainer)" />
-
-<ApiDocumentation Component="typeof(FluentToast)" />
-
