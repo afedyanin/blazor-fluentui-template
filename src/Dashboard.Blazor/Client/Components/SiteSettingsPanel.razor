@@ -1,4 +1,4 @@
-﻿@implements IDialogContentComponent<GlobalState>
+@implements IDialogContentComponent<GlobalState>
 
 <div>
     <FluentStack Orientation="Orientation.Vertical" VerticalGap="8">
@@ -20,11 +20,6 @@
             <FluentRadio Value="@ThemeSettingDark">Dark</FluentRadio>
         </FluentRadioGroup>
        
-        <FluentSwitch @bind-Value="@_rtl" title="Switch direction" AfterBindValue="UpdateDirectionAsync">
-            <span>Direction</span>
-            <span slot="unchecked-message">LTR</span>
-            <span slot="checked-message">RTL</span>
-        </FluentSwitch>
         <p style="margin-top:48px;"><i>These settings are not (yet) persisted from one session to another.</i></p>
     </FluentStack>
 </div>

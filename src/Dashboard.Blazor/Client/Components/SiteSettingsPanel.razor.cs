@@ -12,11 +12,8 @@ public partial class SiteSettingsPanel : IDialogContentComponent<GlobalState>, I
     private const string ThemeSettingLight = "Light";
 
     private string _currentTheme = ThemeSettingSystem;
-    private LocalizationDirection _dir;
     private OfficeColor _selectedColorOption;
-    private bool _rtl;
     private IJSObjectReference? _jsModule;
-    private ElementReference _container;
 
     [Inject]
     private IJSRuntime JSRuntime { get; set; } = default!;
@@ -27,17 +24,11 @@ public partial class SiteSettingsPanel : IDialogContentComponent<GlobalState>, I
     [Inject]
     private AccentBaseColor AccentBaseColor { get; set; } = default!;
 
-    [Inject]
-    private Direction Direction { get; set; } = default!;
-
     [Parameter]
     public GlobalState Content { get; set; } = default!;
 
     protected override void OnInitialized()
     {
-        _rtl = Content.Dir == LocalizationDirection.rtl;
-        _container = Content.Container;
-
         OfficeColor[] colors = Enum.GetValues<OfficeColor>();
         _selectedColorOption = colors.Where(x => x.ToAttributeValue() == Content.Color).FirstOrDefault();
 
@@ -58,18 +49,6 @@ public partial class SiteSettingsPanel : IDialogContentComponent<GlobalState>, I
             _currentTheme = await _jsModule.InvokeAsync<string>("getThemeCookieValue");
             StateHasChanged();
         }
-    }
-
-    public async Task UpdateDirectionAsync()
-    {
-        _dir = (_rtl ? LocalizationDirection.rtl : LocalizationDirection.ltr);
-
-        Content.Dir = _dir;
-
-        await _jsModule!.InvokeVoidAsync("switchDirection", _dir.ToString());
-        await Direction.WithDefault(_dir.ToAttributeValue());
-
-        StateHasChanged();
     }
 
     private async Task UpdateThemeAsync(string newValue)
