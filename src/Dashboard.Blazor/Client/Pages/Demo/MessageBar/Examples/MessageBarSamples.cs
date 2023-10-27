@@ -1,5 +1,5 @@
 
-namespace Dashboard.Blazor.Client.Pages.MessageBar.Examples;
+namespace Dashboard.Blazor.Client.Pages.Demo.MessageBar.Examples;
 
 /// <summary />
 public class MessageBarSamples

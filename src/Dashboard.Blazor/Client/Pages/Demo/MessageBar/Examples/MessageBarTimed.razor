@@ -1,14 +1,11 @@
 @inject IMessageService MessageService
 @inject IDialogService DialogService
-@using Dashboard.Blazor.Client.Pages.Dialog.Examples;
+@using Dashboard.Blazor.Client.Pages.Demo.Dialog.Examples;
 
+<FluentButton OnClick="@AddInTopBar" Appearance="Appearance.Accent">Add on top (4 sec)</FluentButton>
+<FluentButton OnClick="@AddInNotificationCenter" Appearance="Appearance.Accent">Add in Notification Center (3 sec)</FluentButton>
+<FluentButton OnClick="@AddInDialog" Appearance="Appearance.Accent">Add in a dialog (5 sec)</FluentButton>
 
-
-<FluentButton OnClick="@AddInTopBar" Appearance="Appearance.Accent">Add on top</FluentButton>
-<FluentButton OnClick="@AddInNotificationCenter" Appearance="Appearance.Accent">Add in Notification Center</FluentButton>
-<FluentButton OnClick="@AddInDialog" Appearance="Appearance.Accent">Add in a dialog</FluentButton>
-
-<FluentButton Appearance="Appearance.Hypertext" OnClick="@((e) => MessageService.Clear())">Clear all alerts</FluentButton>
 
 @code
 {
@@ -32,7 +29,13 @@
     {
         var message = $"Simple message #{counter++}";
         var type = Enum.GetValues<MessageIntent>()[counter % 4];
-        MessageService.ShowMessageBarAsync(message, type, App.MESSAGES_TOP);
+        MessageService.ShowMessageBar(options =>
+        {
+            options.Title = message;
+            options.Intent = type;
+            options.Section = App.MESSAGES_TOP;
+            options.Timeout = 4;
+        });
     }
 
     void AddInNotificationCenter()
@@ -44,6 +47,7 @@
             options.Body = MessageBarSamples.OneRandomMessage;
             options.Link = link;
             options.Timestamp = DateTime.Now;
+            options.Timeout = 3;
             options.Section = App.MESSAGES_NOTIFICATION_CENTER;
         });
     }
@@ -57,6 +61,7 @@
             options.Title = $"Simple message #{counter++}";
             options.Body = MessageBarSamples.OneRandomMessage;
             options.Link = link;
+            options.Timeout = 5;
             options.Timestamp = DateTime.Now;
             options.Section = App.MESSAGES_DIALOG;
         });
