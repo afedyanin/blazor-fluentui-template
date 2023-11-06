@@ -1,8 +1,14 @@
-# blazor-dashboard
-Demo dashboard
-
+# blazor-fluentui
+Demo Blazor dashboard based on Fluent UI
 
 ## Fluent UI
 
-- Grid (https://aspnet.github.io/quickgridsamples/)
+- [GitHub](https://github.com/microsoft/fluentui-blazor)
+- [Docs](https://www.fluentui-blazor.net/)
+
+## Sample
+
+![sample](sample.png)
+
+
 
