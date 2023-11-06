@@ -1,4 +1,4 @@
-# blazor-fluentui
+# blazor-fluentui-template
 Demo Blazor dashboard based on Fluent UI
 
 ## Fluent UI
