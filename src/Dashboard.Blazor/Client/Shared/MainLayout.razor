@@ -1,19 +1,64 @@
+@namespace Dashboard.Blazor.Client
+@using Dashboard.Blazor.Client.Components
+
 @inherits LayoutComponentBase
 
-<RadzenComponents />
+<PageTitle>Fluent UI Blazor</PageTitle>
 
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
-
-    <main>
-        <div class="top-row px-4">
-            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+<div id="container" @ref="container">
+    <header>
+        <div class="logo">
+            <FluentStack Orientation="Orientation.Horizontal" VerticalAlignment="VerticalAlignment.Center">
+                <FluentIcon Value="@(new Icons.Regular.Size32.DataTrending())" Color="@Color.Accent" />
+                <FluentLabel Typo="Typography.Subject" Weight="FontWeight.Bold">FluentUI</FluentLabel>
+            </FluentStack>
         </div>
-
-        <article class="content px-4">
-            @Body
-        </article>
+        <div class="notifications">
+            <NotificationCenter />
+        </div>
+        <div class="settings">
+            <SiteSettings />
+        </div>
+        <div class="profile">
+            <UserProfile />
+        </div>
+    </header>
+    <main>
+        <input type="checkbox" id="menu-toggle" checked=@menuchecked @onclick=HandleChecked />
+        <label for="menu-toggle" class="menu-icon">
+            <FluentIcon Icon="Icons.Regular.Size24.Navigation" />
+        </label>
+        <nav>
+            <DemoNavMenu />
+        </nav>
+        <div class="content">
+            <article id="article">
+                 
+                <FluentMessageBarContainer Section="@App.MESSAGES_TOP" />
+            
+                <ErrorBoundary @ref="errorBoundary">
+                    <ChildContent>
+                        @Body
+                    </ChildContent>
+                    <ErrorContent Context="ex">
+                        <div class="blazor-error-boundary">@ex.Message</div>
+                    </ErrorContent>
+                </ErrorBoundary>
+            </article>
+            <aside>
+                <ConsoleLog />
+            </aside>
+        </div>
     </main>
+    <footer>
+        <div class="version">
+            <small>Version: @_version</small>
+        </div>
+        <div class="copy">
+            <small>Markets IT © 2023. All rights reserved.</small>
+        </div>
+    </footer>
+    <FluentToastContainer MaxToastCount="10"  />
+    <FluentDialogProvider />
+    <FluentTooltipProvider />
 </div>

@@ -1,0 +1,45 @@
+<div>
+    <FluentNavMenu Collapsible="false" Title="Main menu">
+        <FluentNavLink Icon="@(new Icons.Regular.Size20.Home())" Href="/" Match="NavLinkMatch.All">
+            <h3>Dashboard</h3>
+        </FluentNavLink>
+
+        <FluentNavGroup Expanded Gap="10px">
+            <TitleTemplate>
+                <h3>Demo pages</h3>
+            </TitleTemplate>
+            <ChildContent>
+                <FluentNavLink Href="/environments" Icon="@(new Icons.Regular.Size20.Grid())">Environments</FluentNavLink>
+                <FluentNavLink Href="/market-data" Icon="@(new Icons.Regular.Size20.CalendarLtr())">Market Data</FluentNavLink>
+                <FluentNavLink Href="/reports" Icon="@(new Icons.Regular.Size20.AppGeneric())">Reports</FluentNavLink>
+            </ChildContent>
+        </FluentNavGroup>
+
+        <FluentNavGroup Gap="10px">
+            <TitleTemplate>
+                <h3>Demo Components</h3>
+            </TitleTemplate>
+            <ChildContent>
+                <FluentNavLink Href="/DataGrid" Icon="@(new Icons.Regular.Size20.Grid())">Data grid</FluentNavLink>
+                <FluentNavLink Href="/DateTime" Icon="@(new Icons.Regular.Size20.CalendarLtr())">Date & Time</FluentNavLink>
+                <FluentNavLink Href="/Dialog" Icon="@(new Icons.Regular.Size20.AppGeneric())">Dialog</FluentNavLink>
+                <FluentNavLink Href="/MessageBar" Icon="@(new Icons.Regular.Size20.WindowHeaderHorizontal())">MessageBar</FluentNavLink>
+                <FluentNavLink Href="/MessageBox" Icon="@(new Icons.Regular.Size20.MegaphoneLoud())">MessageBox</FluentNavLink>
+                <FluentNavLink Href="/Panel" Icon="@(new Icons.Regular.Size20.PanelRight())">Panel</FluentNavLink>
+                <FluentNavLink Href="/Toast" Icon="@(new Icons.Regular.Size20.FoodToast())">Toast</FluentNavLink>
+                <FluentNavLink Href="/TreeView" Icon="@(new Icons.Regular.Size20.TextBulletListTree())">Tree View</FluentNavLink>
+            </ChildContent>
+        </FluentNavGroup>
+
+        <FluentNavGroup Gap="10px">
+            <TitleTemplate>
+                <h3>About</h3>
+            </TitleTemplate>
+            <ChildContent>
+                <FluentNavLink Href="https://github.com/microsoft/fluentui-blazor" Icon="@(new Icons.Regular.Size20.Info())">Git Hub</FluentNavLink>
+                <FluentNavLink Href="https://www.fluentui-blazor.net/" Icon="@(new Icons.Regular.Size20.ArrowUp())">Main demo</FluentNavLink>
+            </ChildContent>
+        </FluentNavGroup>
+
+    </FluentNavMenu>
+</div>

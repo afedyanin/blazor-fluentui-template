@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.ResponseCompression;
+using Microsoft.Fast.Components.FluentUI;
 
 namespace Dashboard.Blazor;
 public class Program
@@ -11,6 +12,11 @@ public class Program
 
         builder.Services.AddControllersWithViews();
         builder.Services.AddRazorPages();
+
+        builder.Services.AddFluentUIComponents(options =>
+        {
+            options.HostingModel = BlazorHostingModel.WebAssembly;
+        });
 
         var app = builder.Build();
 

@@ -1,0 +1,21 @@
+@page "/Dialog"
+
+@using Dashboard.Blazor.Client.Pages.Demo.Dialog.Examples;
+
+<h1>Dialog</h1>
+
+<DemoSection Title="DialogService with IDialogReference" MaxHeight="500px" Component="@typeof(DialogServiceExample)">
+</DemoSection>
+
+<DemoSection Title="Customized Dialog" Component="@typeof(DialogCustomizableExample)">
+</DemoSection>
+
+<DemoSection Title="DialogService with EventCallback" MaxHeight="500px" Component="@typeof(DialogServiceCallbackExample)">
+</DemoSection>
+
+<DemoSection Title="Dialog without using DialogService" MaxHeight="500px" Component="@typeof(DialogDefault)">
+</DemoSection>
+
+<DemoSection Title="SimpleDialog as component" MaxHeight="500px" Component="@typeof(DialogSimpleDialog)">
+</DemoSection>
+

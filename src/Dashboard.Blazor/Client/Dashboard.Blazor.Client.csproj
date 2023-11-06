@@ -7,13 +7,23 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="7.0.12" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="7.0.12" PrivateAssets="all" />
-    <PackageReference Include="Radzen.Blazor" Version="4.18.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="7.0.13" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="7.0.13" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.Fast.Components.FluentUI" Version="3.2.2" />
+    <PackageReference Include="Microsoft.Fast.Components.FluentUI.Emojis" Version="3.0.0" />
+    <PackageReference Include="Microsoft.Fast.Components.FluentUI.Icons" Version="3.2.2" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Shared\Dashboard.Blazor.Shared.csproj" />
   </ItemGroup>
+
+  <Target Name="CopySources" BeforeTargets="BeforeBuild">
+    <ItemGroup>
+      <Sources Include="$(ProjectDir)\Pages\**\Examples\*" />
+      <Sources Include="$(ProjectDir)\Pages\Lab\**" />
+      <Sources Include="$(ProjectDir)\Components\*" />
+    </ItemGroup>
+  </Target>
 
 </Project>

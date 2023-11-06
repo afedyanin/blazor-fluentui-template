@@ -1,13 +1,8 @@
-# radzen-blazor-dashboard
+# blazor-dashboard
 Demo dashboard
 
-## Radzen Components
 
-- [Get started](https://blazor.radzen.com/get-started)
+## Fluent UI
 
-
-
-## Radzen studio
-
-- [Introduction | Create a Blazor CRM application with Radzen (Blazor)](https://www.radzen.com/documentation/blazor/crm/introduction/)
+- Grid (https://aspnet.github.io/quickgridsamples/)
 

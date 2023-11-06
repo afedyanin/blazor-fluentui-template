@@ -1,0 +1,23 @@
+@implements IDialogContentComponent<GlobalState>
+
+<div>
+    <FluentStack Orientation="Orientation.Vertical" VerticalGap="10">
+        <FluentLabel>Email: anfemail@gmail.com</FluentLabel>
+        <FluentLabel>Login: afedyanin</FluentLabel>
+        <FluentStack Orientation="Orientation.Horizontal">Roles:
+            <FluentBadge Appearance ="Appearance.Accent">Role 1</FluentBadge>
+            <FluentBadge Appearance="Appearance.Accent">Role 2</FluentBadge>
+            <FluentBadge Appearance="Appearance.Accent">Role 3</FluentBadge>
+            <FluentBadge Appearance="Appearance.Accent">Role 4</FluentBadge>
+        </FluentStack>
+    </FluentStack>
+    <div style="padding-top:50px;">
+        <FluentStack HorizontalAlignment="HorizontalAlignment.Center">
+            <FluentButton IconEnd="@(new Icons.Regular.Size28.DoorArrowRight())">
+                Log Out
+            </FluentButton>
+        </FluentStack>
+    </div>
+
+</div>
+

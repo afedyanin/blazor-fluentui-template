@@ -6,29 +6,73 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Dashboard.Blazor</title>
   <base href="/" />
-  <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+  <link href="_content/Microsoft.Fast.Components.FluentUI/css/reboot.css" rel="stylesheet" />
   <link href="css/app.css" rel="stylesheet" />
-  <link rel="icon" type="image/png" href="favicon.png" />
+  <link href="css/site.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --neutral-fill-layer-rest: #ffffff;
+      color: #000000;
+    }
+
+    .loading-progress-text {
+      color: #000000;
+    }
+
+    @media(prefers-color-scheme: dark) {
+      :root {
+        --neutral-fill-layer-rest: #464646;
+        color: #ffffff;
+      }
+
+      .loading-progress-text {
+        color: #ffffff;
+      }
+    }
+
+    body,
+    #container {
+      font: 14px "Segoe UI Variable", "Segoe UI", sans-serif;
+      color: var(--neutral-base-color);
+      background-color: var(--neutral-fill-layer-rest);
+    }
+  </style>
   <link href="Dashboard.Blazor.Client.styles.css" rel="stylesheet" />
-  <link rel="stylesheet" href="_content/Radzen.Blazor/css/material-base.css">
+  <!-- highlight -->
+  <link rel="stylesheet" title="light" href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.6.0/styles/vs.min.css">
+  <link rel="stylesheet" title="dark" disabled="disabled" href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.6.0/styles/vs2015.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-copy@1.0.3/dist/highlightjs-copy.min.css">
+  <link rel="icon" type="image/png" href="favicon.png" />
 </head>
 
 <body>
-    <div id="app">
-        <svg class="loading-progress">
-            <circle r="40%" cx="50%" cy="50%" />
-            <circle r="40%" cx="50%" cy="50%" />
-        </svg>
-        <div class="loading-progress-text"></div>
-    </div>
+  <div id="app">
+    <svg class="loading-progress">
+      <circle r="40%" cx="50%" cy="50%" />
+      <circle r="40%" cx="50%" cy="50%" />
+    </svg>
+    <div class="loading-progress-text"></div>
+  </div>
 
-    <div id="blazor-error-ui">
-        An unhandled error has occurred.
-        <a href="" class="reload">Reload</a>
-        <a class="dismiss">🗙</a>
-    </div>
-    <script src="_framework/blazor.webassembly.js"></script>
-    <script src="_content/Radzen.Blazor/Radzen.Blazor.js"></script>
+  <div id="blazor-error-ui">
+    An unhandled error has occurred.
+    <a href="" class="reload">Reload</a>
+    <a class="dismiss">🗙</a>
+  </div>
+  <script src="_framework/blazor.webassembly.js"></script>
+  <script src="js/site.js"></script>
+  <script src="js/theme.js" type="module"></script>
+
+  <!-- highlight -->
+  <script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.6.0/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/highlightjs-cshtml-razor@2.1.1/dist/cshtml-razor.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/highlightjs-copy@1.0.3/dist/highlightjs-copy.min.js"></script>
+  <script>
+    if (hljs != null) {
+      hljs.addPlugin(new CopyButtonPlugin());
+    }
+  </script>
 </body>
 
 </html>
