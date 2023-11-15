@@ -44,9 +44,14 @@ public class Program
             ContentTypeProvider = provider
         });
 
+        var webSocketOptions = new WebSocketOptions
+        {
+            KeepAliveInterval = TimeSpan.FromMinutes(2)
+        };
+
+        app.UseWebSockets(webSocketOptions);
+
         app.UseRouting();
-
-
         app.MapRazorPages();
         app.MapControllers();
         app.MapFallbackToFile("index.html");

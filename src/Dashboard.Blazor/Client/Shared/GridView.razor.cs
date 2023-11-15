@@ -17,6 +17,9 @@ public partial class GridView : IAsyncDisposable
     public string Height { get; set; } = "800px";
 
     [Parameter]
+    public bool UseWebSocket { get; set; }
+
+    [Parameter]
     public string SchemaEndpoint { get; set; } = string.Empty;
 
     [Parameter]
@@ -25,17 +28,20 @@ public partial class GridView : IAsyncDisposable
     [Inject]
     private IJSRuntime JSRuntime { get; set; } = default!;
 
-    [Inject]
-    private HttpClient Http { get; set; }
-
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
             _jsModule = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./Shared/GridView.razor.js");
-            var schema = await Http.GetFromJsonAsync<Dictionary<string, string>>(SchemaEndpoint);
-            // await _jsModule.InvokeVoidAsync("fetchDataGrid", schema, DataEndpoint, perspectiveViewer);
-            await _jsModule.InvokeVoidAsync("fetchParquet", DataEndpoint, perspectiveViewer);
+
+            if (UseWebSocket)
+            {
+                await _jsModule.InvokeVoidAsync("fetchServerSide", DataEndpoint, perspectiveViewer);
+            }
+            else
+            {
+                await _jsModule.InvokeVoidAsync("fetchArrow", DataEndpoint, perspectiveViewer);
+            }
         }
     }
 

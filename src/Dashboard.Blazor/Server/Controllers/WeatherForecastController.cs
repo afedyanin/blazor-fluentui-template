@@ -32,4 +32,10 @@ public class WeatherForecastController : ControllerBase
         .ToArray();
     }
 
+    [HttpGet("arrow/{fileName}")]
+    public IActionResult GetArrow(string fileName)
+    {
+        var filepath = Path.Combine(AppContext.BaseDirectory, "Data", fileName);
+        return File(System.IO.File.ReadAllBytes(filepath), "application/apache.arrow", Path.GetFileName(filepath));
+    }
 }
