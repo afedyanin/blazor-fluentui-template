@@ -34,7 +34,8 @@ public partial class GridView : IAsyncDisposable
         {
             _jsModule = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./Shared/GridView.razor.js");
             var schema = await Http.GetFromJsonAsync<Dictionary<string, string>>(SchemaEndpoint);
-            await _jsModule.InvokeVoidAsync("fetchDataGrid", schema, DataEndpoint, perspectiveViewer);
+            // await _jsModule.InvokeVoidAsync("fetchDataGrid", schema, DataEndpoint, perspectiveViewer);
+            await _jsModule.InvokeVoidAsync("fetchParquet", DataEndpoint, perspectiveViewer);
         }
     }
 
@@ -44,6 +45,7 @@ public partial class GridView : IAsyncDisposable
         {
             if (_jsModule != null)
             {
+                // await _jsModule.InvokeVoidAsync("dispose");
                 await _jsModule.DisposeAsync();
             }
         }
