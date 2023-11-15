@@ -21,12 +21,15 @@ public class WeatherForecastController : ControllerBase
     [HttpGet]
     public IEnumerable<WeatherForecast> Get()
     {
-        return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+        return Enumerable.Range(1, 50).Select(index => new WeatherForecast
         {
-            Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
+            Date = DateTime.Today.AddDays(index),
             TemperatureC = Random.Shared.Next(-20, 55),
-            Summary = Summaries[Random.Shared.Next(Summaries.Length)]
+            Summary = Summaries[Random.Shared.Next(Summaries.Length)],
+            Value = (decimal)Random.Shared.NextDouble() * 1000 * (Random.Shared.Next(0, 5) < 2 ? 1 : -1),
+            IsCold = Random.Shared.Next(0, 5) < 2 ? true : false,
         })
         .ToArray();
     }
+
 }
