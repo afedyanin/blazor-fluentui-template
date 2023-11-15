@@ -1,39 +1,29 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">Dashboard.Blazor</a>
-        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    </div>
+<div>
+    <FluentNavMenu Collapsible="false" Title="Main menu">
+        <FluentNavLink Icon="@(new Icons.Regular.Size20.Home())" Href="/" Match="NavLinkMatch.All">
+            <h3>Dashboard</h3>
+        </FluentNavLink>
+
+        <FluentNavGroup Expanded Gap="10px">
+            <TitleTemplate>
+                <h3>Samples</h3>
+            </TitleTemplate>
+            <ChildContent>
+                <FluentNavLink Href="/virtual-table" Icon="@(new Icons.Regular.Size20.Grid())">Virtual Table</FluentNavLink>
+                <FluentNavLink Href="/fetch-data" Icon="@(new Icons.Regular.Size20.CalendarLtr())">Weather Data</FluentNavLink>
+                 <FluentNavLink Href="/perspective-view" Icon="@(new Icons.Regular.Size20.Airplane())">Perspective-View</FluentNavLink>
+            </ChildContent>
+        </FluentNavGroup>
+
+        <FluentNavGroup Gap="10px">
+            <TitleTemplate>
+                <h3>About</h3>
+            </TitleTemplate>
+            <ChildContent>
+                <FluentNavLink Href="https://github.com/microsoft/fluentui-blazor" Icon="@(new Icons.Regular.Size20.Info())">Git Hub</FluentNavLink>
+                <FluentNavLink Href="https://www.fluentui-blazor.net/" Icon="@(new Icons.Regular.Size20.ArrowUp())">Main demo</FluentNavLink>
+            </ChildContent>
+        </FluentNavGroup>
+
+    </FluentNavMenu>
 </div>
-
-<div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
-    <nav class="flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Home
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="oi oi-plus" aria-hidden="true"></span> Counter
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="fetchdata">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
-            </NavLink>
-        </div>
-    </nav>
-</div>
-
-@code {
-    private bool collapseNavMenu = true;
-
-    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-
-    private void ToggleNavMenu()
-    {
-        collapseNavMenu = !collapseNavMenu;
-    }
-}
