@@ -25,6 +25,35 @@ export async function fetchArrow(url, view) {
   view.load(table);
 }
 
+export async function fetchWebSocket(view) {
+
+  let scheme = document.location.protocol === "https:" ? "wss" : "ws";
+  let port = document.location.port ? (":" + document.location.port) : "";
+  let connectionUrl = scheme + "://" + document.location.hostname + port + "/tripdata";
+
+  const socket = new WebSocket(connectionUrl);
+  const worker = perspective.worker();
+
+  socket.onopen = function (event) {
+    console.info("socket open");
+  };
+
+  socket.onclose = function (event) {
+    console.info("socket closed");
+  };
+
+  socket.onerror = function (event) {
+    console.info("socket error: " + event);
+  };
+
+  socket.onmessage = function (event) {
+    console.info("socket data received");
+    let ab = event.data.arrayBuffer();
+    let table = worker.table(ab);
+    view.load(table);
+  };
+}
+
 export async function fetchServerSide(tablename, viewer) {
 
   // Create two perspective interfaces, one remotely via WebSocket,

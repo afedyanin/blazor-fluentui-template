@@ -1,4 +1,6 @@
 using System.Net.WebSockets;
+using Apache.Arrow.Ipc;
+using Dashboard.Blazor.Server.Helpers;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Dashboard.Blazor.Server.Controllers;
@@ -10,21 +12,10 @@ public class TripDataController : ControllerBase
     {
         if (HttpContext.WebSockets.IsWebSocketRequest)
         {
-            using var ws = await HttpContext.WebSockets.AcceptWebSocketAsync();
             using var webSocket = await HttpContext.WebSockets.AcceptWebSocketAsync();
-            var bytes = GetBytes("weather.json.arrow");
+            var bytes = await GetBytes();
             var segment = new ArraySegment<byte>(bytes, 0, bytes.Length);
             await webSocket.SendAsync(segment, WebSocketMessageType.Binary, true, CancellationToken.None);
-
-
-            if (ws.State == WebSocketState.Open)
-            {
-                await ws.SendAsync(segment, WebSocketMessageType.Text, true, CancellationToken.None);
-            }
-            else if (ws.State == WebSocketState.Closed || ws.State == WebSocketState.Aborted)
-            {
-                return;
-            }
         }
         else
         {
@@ -32,10 +23,19 @@ public class TripDataController : ControllerBase
         }
     }
 
-
-    private static byte[] GetBytes(string fileName)
+    private static async Task<byte[]> GetBytes()
     {
-        var filepath = Path.Combine(AppContext.BaseDirectory, "Data", fileName);
-        return System.IO.File.ReadAllBytes(filepath);
+        var stream = new MemoryStream();
+        ArrowStreamWriter? writer = null;
+
+        foreach (var recordBatch in ArrowDataHelper.ParquetToArrow())
+        {
+            writer ??= new ArrowStreamWriter(stream, recordBatch.Schema);
+            await writer.WriteRecordBatchAsync(recordBatch);
+        }
+
+        stream.Flush();
+        stream.Seek(0, SeekOrigin.Begin);
+        return stream.ToArray();
     }
 }

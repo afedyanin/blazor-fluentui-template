@@ -1,7 +1,8 @@
+using Apache.Arrow;
 using Apache.Arrow.Ipc;
+using Dashboard.Blazor.Server.Helpers;
 using Dashboard.Blazor.Shared;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Data.Analysis;
 using ParquetSharp;
 
 namespace Dashboard.Blazor.Server.Controllers;
@@ -9,6 +10,7 @@ namespace Dashboard.Blazor.Server.Controllers;
 [Route("[controller]")]
 public class WeatherForecastController : ControllerBase
 {
+
     private static readonly string[] Summaries = new[]
     {
         "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
@@ -45,28 +47,22 @@ public class WeatherForecastController : ControllerBase
     [HttpGet("parquet/{fileName}")]
     public async Task<IActionResult> GetArrowBatch(string fileName)
     {
-        var df = ParquetToDataFrame(fileName);
-        var batches = df.ToArrowRecordBatches();
-
-        using var stream = new MemoryStream();
+        var stream = new MemoryStream();
         ArrowStreamWriter? writer = null;
 
-        foreach (var recordBatch in batches)
+        foreach (var recordBatch in ArrowDataHelper.ParquetToArrow())
         {
             writer ??= new ArrowStreamWriter(stream, recordBatch.Schema);
             await writer.WriteRecordBatchAsync(recordBatch);
         }
 
-        await writer!.WriteEndAsync();
-        return File(stream, "application/apache.arrow");
+        stream.Flush();
+        stream.Seek(0, SeekOrigin.Begin);
+
+        return new FileStreamResult(stream, "application/apache.arrow")
+        {
+            FileDownloadName = "file.arrow",
+        };
     }
 
-    private DataFrame ParquetToDataFrame(string fileName, int rowGroupIndex = 0)
-    {
-        var filepath = Path.Combine(AppContext.BaseDirectory, "Data", fileName);
-        using var parquetReader = new ParquetFileReader(filepath);
-        var df = parquetReader.ToDataFrame();
-        parquetReader.Close();
-        return df;
-    }
 }

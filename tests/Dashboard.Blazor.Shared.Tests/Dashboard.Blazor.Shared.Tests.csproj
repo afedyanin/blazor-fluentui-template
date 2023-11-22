@@ -11,7 +11,7 @@
 
   <ItemGroup>
     <PackageReference Include="Apache.Arrow" Version="14.0.1" />
-    <PackageReference Include="Microsoft.Data.Analysis" Version="0.20.1" />
+    <PackageReference Include="Microsoft.Data.Analysis" Version="0.21.0-preview.23511.1" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.7.1" />
     <PackageReference Include="NUnit" Version="3.13.3" />
     <PackageReference Include="NUnit3TestAdapter" Version="4.4.2" />

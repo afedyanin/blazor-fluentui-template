@@ -36,7 +36,7 @@ public partial class GridView : IAsyncDisposable
 
             if (UseWebSocket)
             {
-                await _jsModule.InvokeVoidAsync("fetchServerSide", DataEndpoint, perspectiveViewer);
+                await _jsModule.InvokeVoidAsync("fetchWebSocket", DataEndpoint, perspectiveViewer);
             }
             else
             {
