@@ -1,3 +1,8 @@
+# 201123
+- запустить на Питоне (Ноде) вариант с большой таблицей - https://github.com/finos/perspective/tree/master/examples/python-tornado
+- отдавать таблицу с сервера в формате arrow (http)
+
+
 ## Socket Server
 
 - отдавать бинарный контент чанками (arrow формат)
