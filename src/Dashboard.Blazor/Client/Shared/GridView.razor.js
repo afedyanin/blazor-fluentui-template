@@ -37,12 +37,22 @@ export async function fetchWebSocket(schema, view) {
   let jsonSchema = await resp.json();
     const table = await worker.table(jsonSchema);
   view.load(table);
-
   
   view.addEventListener("perspective-click", function (event) {
     console.info("Click event fired!");
   });
 
+  view.addEventListener("perspective-config-update", function (event) {
+    console.log("The config has changed!");
+  });
+  view.addEventListener("perspective-view-update", function (event) {
+    console.log("The view updated!");
+  });
+
+  view.addEventListener("change", function (event) {
+    console.log("View has changed!");
+  });
+  
   socket.onopen = function (event) {
     console.info("socket open");
   };
@@ -56,6 +66,7 @@ export async function fetchWebSocket(schema, view) {
       console.info("Scroll event fired!");
     });
   };
+
 
   socket.onerror = function (event) {
     console.info("socket error: " + event);

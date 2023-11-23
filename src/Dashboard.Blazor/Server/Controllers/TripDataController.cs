@@ -14,7 +14,7 @@ public class TripDataController : ControllerBase
         {
             using var webSocket = await HttpContext.WebSockets.AcceptWebSocketAsync();
 
-            for (int batch = 1; batch <= 2; batch++)
+            for (int batch = 0; batch <= 0; batch++)
             {
                 var bytes = await GetBytes(batch);
                 var segment = new ArraySegment<byte>(bytes, 0, bytes.Length);
