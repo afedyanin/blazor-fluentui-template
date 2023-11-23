@@ -5,7 +5,7 @@ namespace Dashboard.Blazor.Server.Helpers;
 
 public static class ArrowDataHelper
 {
-    private static readonly string _parquetFileName = "D:\\workspace\\blazor-dashboard\\src\\Dashboard.Blazor\\Client\\wwwroot\\sample-data\\fhvhv_tripdata_2023-09.parquet";
+    private static readonly string _parquetFileName = "C:\\Users\\Anatoly\\Documents\\GitHub\\radzen-blazor-dashboard\\src\\Dashboard.Blazor\\Client\\wwwroot\\sample-data\\fhvhv_tripdata_2023-08.parquet";
 
     private static readonly string[] fhvhv_tripdata_columns = new[]
     {
@@ -16,7 +16,6 @@ public static class ArrowDataHelper
         ,"PULocationID"
         ,"DOLocationID"
         ,"trip_miles"
-        ,"trip_time"
         ,"base_passenger_fare"
         ,"tolls"
         ,"bcf"
@@ -27,11 +26,10 @@ public static class ArrowDataHelper
         ,"driver_pay"
     };
 
-    public static IEnumerable<RecordBatch> ParquetToArrow(int batches = 1)
+    public static IEnumerable<RecordBatch> ParquetToArrow(int batchnum = 0)
     {
-        var groups = Enumerable.Range(0, batches).ToArray();
         using var parquetReader = new ParquetFileReader(_parquetFileName);
-        var df = parquetReader.ToDataFrame(columns: fhvhv_tripdata_columns, rowGroupIndices: groups);
+        var df = parquetReader.ToDataFrame(columns: fhvhv_tripdata_columns, rowGroupIndices: new[] { batchnum });
         return df.ToArrowRecordBatches();
     }
 }

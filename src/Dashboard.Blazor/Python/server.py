@@ -11,8 +11,8 @@ from perspective import Table, PerspectiveManager, PerspectiveTornadoHandler
 
 
 here = os.path.abspath(os.path.dirname(__file__))
-# file_path = os.path.join("green_tripdata_2023-08.arrow")
-file_path = os.path.join("fhvhv_tripdata_2023-08.arrow")
+file_path = os.path.join("green_tripdata_2023-08.arrow")
+#file_path = os.path.join("fhvhv_tripdata_2023-08.arrow")
 
 IS_MULTI_THREADED = True
 

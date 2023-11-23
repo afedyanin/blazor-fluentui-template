@@ -13,9 +13,13 @@ public class TripDataController : ControllerBase
         if (HttpContext.WebSockets.IsWebSocketRequest)
         {
             using var webSocket = await HttpContext.WebSockets.AcceptWebSocketAsync();
-            var bytes = await GetBytes();
-            var segment = new ArraySegment<byte>(bytes, 0, bytes.Length);
-            await webSocket.SendAsync(segment, WebSocketMessageType.Binary, true, CancellationToken.None);
+
+            for (int batch = 1; batch <= 2; batch++)
+            {
+                var bytes = await GetBytes(batch);
+                var segment = new ArraySegment<byte>(bytes, 0, bytes.Length);
+                await webSocket.SendAsync(segment, WebSocketMessageType.Binary, true, CancellationToken.None);
+            }
         }
         else
         {
@@ -23,12 +27,12 @@ public class TripDataController : ControllerBase
         }
     }
 
-    private static async Task<byte[]> GetBytes()
+    private static async Task<byte[]> GetBytes(int batchNum)
     {
         var stream = new MemoryStream();
         ArrowStreamWriter? writer = null;
 
-        foreach (var recordBatch in ArrowDataHelper.ParquetToArrow())
+        foreach (var recordBatch in ArrowDataHelper.ParquetToArrow(batchNum))
         {
             writer ??= new ArrowStreamWriter(stream, recordBatch.Schema);
             await writer.WriteRecordBatchAsync(recordBatch);

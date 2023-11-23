@@ -1,4 +1,3 @@
-using System.Net.Http.Json;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 
@@ -36,7 +35,7 @@ public partial class GridView : IAsyncDisposable
 
             if (UseWebSocket)
             {
-                await _jsModule.InvokeVoidAsync("fetchWebSocket", DataEndpoint, perspectiveViewer);
+                await _jsModule.InvokeVoidAsync("fetchWebSocket", SchemaEndpoint, perspectiveViewer);
             }
             else
             {

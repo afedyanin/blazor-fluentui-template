@@ -30,6 +30,7 @@
                 // Create a client that expects a Perspective server to accept
                 // Websocket connections at the specified URL.
                 const websocket = perspective.websocket("ws://localhost:8080/websocket");
+                const worker = perspective.worker();
 
                 /* This shows Perspective running in "server mode": the `table`
             variable is a proxy for the `Table` we created on the server.
@@ -40,10 +41,10 @@
             operations to the Python `Table`, execute the commands,
             and return the result back to Javascript.
             */
-                const table = websocket.open_table("data_source_one");
-
-                // Load this in the `<perspective-viewer>`.
-                document.getElementById("viewer").load(table);
+                const remote_table = await websocket.open_table("data_source_one", { limit: 10 });
+                //const view = await remote_table.view();
+                //const local_table = await worker.table(view, { limit: 10 });
+                document.getElementById("viewer").load(remote_table);
             });
         </script>
     </body>

@@ -8,7 +8,7 @@ namespace Dashboard.Blazor.Shared.Tests;
 public class ArrowFileTests
 {
     private static readonly string _arrowFileName = "C:\\Users\\Anatoly\\Documents\\GitHub\\radzen-blazor-dashboard\\src\\Dashboard.Blazor\\Client\\wwwroot\\sample-data\\weather.json.arrow";
-    private static readonly string _parquetFileName = "D:\\workspace\\blazor-dashboard\\src\\Dashboard.Blazor\\Client\\wwwroot\\sample-data\\fhvhv_tripdata_2023-09.parquet";
+    private static readonly string _parquetFileName = "C:\\Users\\Anatoly\\Documents\\GitHub\\radzen-blazor-dashboard\\src\\Dashboard.Blazor\\Client\\wwwroot\\sample-data\\fhvhv_tripdata_2023-08.parquet";
 
     private static readonly string[] fhvhv_tripdata_columns = new[]
     {

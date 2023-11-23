@@ -25,14 +25,23 @@ export async function fetchArrow(url, view) {
   view.load(table);
 }
 
-export async function fetchWebSocket(view) {
+export async function fetchWebSocket(schema, view) {
 
   let scheme = document.location.protocol === "https:" ? "wss" : "ws";
   let port = document.location.port ? (":" + document.location.port) : "";
   let connectionUrl = scheme + "://" + document.location.hostname + port + "/tripdata";
-
   const socket = new WebSocket(connectionUrl);
   const worker = perspective.worker();
+
+  let resp = await fetch(schema);
+  let jsonSchema = await resp.json();
+    const table = await worker.table(jsonSchema);
+  view.load(table);
+
+  
+  view.addEventListener("perspective-click", function (event) {
+    console.info("Click event fired!");
+  });
 
   socket.onopen = function (event) {
     console.info("socket open");
@@ -40,17 +49,22 @@ export async function fetchWebSocket(view) {
 
   socket.onclose = function (event) {
     console.info("socket closed");
+
+    const plugin = document.querySelector("perspective-viewer-datagrid regular-table");
+
+    plugin.addEventListener("scroll", (event) => {
+      console.info("Scroll event fired!");
+    });
   };
 
   socket.onerror = function (event) {
     console.info("socket error: " + event);
   };
 
-  socket.onmessage = function (event) {
+  socket.onmessage = async function (event) {
     console.info("socket data received");
-    let ab = event.data.arrayBuffer();
-    let table = worker.table(ab);
-    view.load(table);
+    let data = await event.data.arrayBuffer();
+    table.update(data);
   };
 }
 
