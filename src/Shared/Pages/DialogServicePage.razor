@@ -18,19 +18,7 @@
     Dialogs are rendered by the <code>&lt;FluentDialogProvider /&gt;</code>. This component needs to be added to the main layout of your application/site.
     You typically do this in the <code>MainLayout.razor</code> file at the end of the <code>&lt;main&gt;</code> section like this:
 </p>
-<CodeSnippet>
-    &lt;main&gt;
-        &lt;nav&gt;
-        :
-        &lt;/nav&gt;
-        &lt;div class=&quot;content&quot;&gt;
-            &lt;article id=&quot;article&quot;&gt;
-                @@Body
-            &lt;/article&gt;
-        &lt;/div&gt;
-        &lt;FluentDialogProvider /&gt;
-    &lt;/main&gt;
-</CodeSnippet>
+
 <strong>IMPORTANT!!</strong>
 <p>
     <strong>
@@ -64,33 +52,6 @@
 </p>
 <p>
     A typical implementation could look something like this:
-    <CodeSnippet Language="csharp">
-        DialogParameters&lt;SimplePerson&gt; parameters = new()
-        {
-            Title = $"Hello {simplePerson.Firstname}",
-            PrimaryAction = "Yes",
-            PrimaryActionEnabled = false,
-            SecondaryAction = "No",
-            Width = "500px",
-            Height = "500px",
-            Content = simplePerson,
-            TrapFocus = _trapFocus,
-            Modal = _modal,
-        };
-
-        IDialogReference dialog = await DialogService.ShowDialogAsync&lt;SimpleDialog, SimplePerson&gt;(parameters);
-        DialogResult? result = await dialog.Result;
-        
-        if (result.Data is not null)
-        {
-            SimplePerson? simplePerson = result.Data as SimplePerson;
-            Console.WriteLine($"Dialog closed by {simplePerson?.Firstname} {simplePerson?.Lastname} ({simplePerson?.Age}) - Canceled: {result.Cancelled}");
-        }
-        else
-        {
-            Console.WriteLine($"Dialog closed - Canceled: {result.Cancelled}");
-        }
-    </CodeSnippet>
 </p>
 
 <h3>Using an EventCallback</h3>
@@ -100,29 +61,8 @@
     Any changes you make to the data in the Dialog component will be reflected in the Data object in the calling component when the dialog is closed.<br />
     You can use the <code>CreateDialogCallback</code> method in the <code>Dialogservice</code> to create the callback function.<br />
     Typically a call would look like this:
-    <CodeSnippet Language="csharp">OnDialogResult = DialogService.CreateDialogCallback(this, HandleIt),</CodeSnippet>
     where <code>this</code> represents the dialog calling component and <code>HandleIt</code> is the method in the calling component that will be called 
     when the dialog is closed. It receives the <code>DialogResult</code> as a parameter.
 </p>
 
-<p>
-    An typical implemtation could look something like this:
-    <CodeSnippet Language="csharp">
-        private async Task HandleIt(DialogResult result)
-        {
-            if (result.Cancelled)
-            {
-                //Handle the cancellation
-                return;
-            }
-            if (result.Data is not null)
-            {
-                //Handle the data
-                   
-            }
-            //Handle closing the dialog
-            await Task.Run(() => ...);
-        }
-    </CodeSnippet>
-</p>
 

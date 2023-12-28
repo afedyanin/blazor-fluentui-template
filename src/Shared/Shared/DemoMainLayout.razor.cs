@@ -1,5 +1,4 @@
 using System.Reflection;
-using FluentUI.Demo.Shared.Components;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Routing;
 using Microsoft.JSInterop;
@@ -12,7 +11,6 @@ public partial class DemoMainLayout
     private string? _version;
     private bool _mobile;
     private string? _prevUri;
-    private TableOfContents? _toc;
     private bool _menuChecked = true;
 
     [Inject]
@@ -43,9 +41,9 @@ public partial class DemoMainLayout
 
     public EventCallback OnRefreshTableOfContents => EventCallback.Factory.Create(this, RefreshTableOfContents);
 
-    private async Task RefreshTableOfContents()
+    private Task RefreshTableOfContents()
     {
-        await _toc!.Refresh();
+        return Task.CompletedTask;
     }
 
     private void HandleChecked()

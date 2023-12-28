@@ -16,20 +16,6 @@
         either the provider itself of the component the provider is placed in.
     </strong>
 </p>
-<CodeSnippet>
-    &lt;main&gt;
-        &lt;nav&gt;
-        :
-        &lt;/nav&gt;
-        &lt;div class=&quot;content&quot;&gt;
-            &lt;article id=&quot;article&quot;&gt;
-            &lt;FluentMessageBarProvider Section="MESSAGES_TOP"/&gt;
-                @@Body
-            &lt;/article&gt;
-        &lt;/div&gt;
-    &lt;/main&gt;
-</CodeSnippet>
-
 
 <h2 id="example">Examples</h2>
 
@@ -77,13 +63,4 @@
 
 <h2 id="messageprovider">MessageBar provider</h2>
 
-<h4>Display the list of messages</h4>
-
-<p>
-    You display a list of messages for a specific section using the <code>FluentMessageBarProvider</code> component.
-</p>
-
-<CodeSnippet>
-    @(@"<FluentMessageBarProvider Section=""MESSAGE_SECTION"" Format=""MessageFormat.Notification"" />")
-</CodeSnippet>
 
