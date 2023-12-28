@@ -1,0 +1,17 @@
+@page "/WhatsNew-Archive"
+
+
+<PageTitle>What's new?</PageTitle>
+
+<h1>What's new?</h1>
+
+@code {
+
+    [CascadingParameter]
+    public EventCallback OnRefreshTableOfContents { get; set; }
+
+    private async Task RefreshTableOfContents()
+    {
+        await OnRefreshTableOfContents.InvokeAsync();
+    }
+}

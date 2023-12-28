@@ -1,0 +1,18 @@
+﻿<div>
+    <FluentRadioGroup Name="numbers" @bind-Value=value1 Label="Numbers">
+        <FluentRadio Value=@("one")>One</FluentRadio>
+        <FluentRadio Value=@("two")>Two</FluentRadio>
+    </FluentRadioGroup>
+</div>
+
+<h4>Single radio</h4>
+<div style="display: flex; flex-direction: column; margin-top: 12px;">
+    <FluentRadioGroup @bind-Value=value2 Name="players" Label="Best basketball players">
+        <FluentRadio Value=@("airjordan")>Michael Jordan</FluentRadio>
+    </FluentRadioGroup>
+</div>
+
+@code 
+{
+    string? value1, value2;
+}
