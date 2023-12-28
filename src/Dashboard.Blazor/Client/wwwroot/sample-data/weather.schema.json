@@ -1,9 +1,0 @@
-{
-  "date": "datetime",
-  "temperatureC": "integer",
-  "temperatureF": "integer",
-  "summary": "string",
-  "value": "float",
-  "isCold": "boolean"
-}
-
