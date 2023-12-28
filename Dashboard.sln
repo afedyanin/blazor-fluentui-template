@@ -12,6 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{6C2A47
 		.editorconfig = .editorconfig
 		LICENSE = LICENSE
 		README.md = README.md
+		sample.png = sample.png
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentUI.Demo.Client", "src\Client\FluentUI.Demo.Client.csproj", "{4923BDCE-A34D-4FD7-93FE-1CDCE4A24D09}"

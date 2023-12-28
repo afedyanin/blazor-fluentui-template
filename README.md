@@ -2,6 +2,8 @@
 
 Blazor dashboard template based on Fluent UI Blazor .NET
 
+![sample](sample.png)
+
 ## Fluent UI Blazor
 
 - [GitHub](https://github.com/microsoft/fluentui-blazor)
