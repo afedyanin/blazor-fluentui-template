@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.ResponseCompression;
+using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.Fast.Components.FluentUI;
 
 namespace Dashboard.Blazor;
@@ -35,11 +35,23 @@ public class Program
         app.UseHttpsRedirection();
 
         app.UseBlazorFrameworkFiles();
-        app.UseStaticFiles();
+
+        var provider = new FileExtensionContentTypeProvider();
+        provider.Mappings[".parquet"] = "application/apache.parquet";
+        provider.Mappings[".arrow"] = "application/apache.arrow";
+        app.UseStaticFiles(new StaticFileOptions
+        {
+            ContentTypeProvider = provider
+        });
+
+        var webSocketOptions = new WebSocketOptions
+        {
+            KeepAliveInterval = TimeSpan.FromMinutes(2)
+        };
+
+        app.UseWebSockets(webSocketOptions);
 
         app.UseRouting();
-
-
         app.MapRazorPages();
         app.MapControllers();
         app.MapFallbackToFile("index.html");
