@@ -21,11 +21,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentUI.Demo.Shared", "src
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentUI.Demo.Server", "src\Server\FluentUI.Demo.Server.csproj", "{816E25C1-6892-4C3F-AA2D-8DB7D732130A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorTemplate.Server", "src\BlazorTemplate.Server\BlazorTemplate.Server.csproj", "{6E6CFED8-3A02-4D72-8B46-060551D0654A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorTemplate.Server", "src\BlazorTemplate.Server\BlazorTemplate.Server.csproj", "{6E6CFED8-3A02-4D72-8B46-060551D0654A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorTemplate.Shared", "src\BlazorTemplate.Shared\BlazorTemplate.Shared.csproj", "{525C0901-2CE2-4118-A4B2-9A6399E6AB70}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorTemplate.Shared", "src\BlazorTemplate.Shared\BlazorTemplate.Shared.csproj", "{525C0901-2CE2-4118-A4B2-9A6399E6AB70}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorTemplate.Client", "src\BlazorTemplate.Client\BlazorTemplate.Client.csproj", "{D5BD1F25-9A6B-4BD0-9AF2-FECDF8769B1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorTemplate.Client", "src\BlazorTemplate.Client\BlazorTemplate.Client.csproj", "{D5BD1F25-9A6B-4BD0-9AF2-FECDF8769B1C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
