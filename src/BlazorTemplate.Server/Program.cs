@@ -1,5 +1,7 @@
 using BlazorTemplate.Client.Pages;
 using BlazorTemplate.Server.Components;
+using BlazorTemplate.Server.Infrastructure;
+using BlazorTemplate.Shared.SampleData;
 using Microsoft.FluentUI.AspNetCore.Components;
 
 namespace BlazorTemplate.Server;
@@ -17,6 +19,8 @@ public class Program
             .AddInteractiveWebAssemblyComponents();
 
         builder.Services.AddFluentUIComponents();
+        builder.Services.AddFluentUIDemoServices();
+        builder.Services.AddScoped<DataSource>();
 
         builder.Services.AddControllers();
         builder.Services.AddEndpointsApiExplorer();
