@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 
 #nullable disable
 
-namespace BlazorTemplate.Server;
+namespace BlazorTemplate.Components;
 
 
 /// <summary>

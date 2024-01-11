@@ -1,4 +1,4 @@
-namespace BlazorTemplate.Server;
+namespace BlazorTemplate.Components;
 
 public delegate void OnLogHandler(string text);
 

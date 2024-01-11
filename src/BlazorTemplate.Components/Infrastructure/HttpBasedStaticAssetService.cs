@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Components;
 
-namespace BlazorTemplate.Server.Infrastructure;
+namespace BlazorTemplate.Components.Infrastructure;
 
 public class HttpBasedStaticAssetService : IStaticAssetService
 {

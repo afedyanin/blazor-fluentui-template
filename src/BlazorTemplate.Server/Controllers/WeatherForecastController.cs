@@ -1,4 +1,4 @@
-using BlazorTemplate.Shared;
+using BlazorTemplate.Shared.SampleData;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlazorTemplate.Server.Controllers;

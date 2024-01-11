@@ -1,4 +1,4 @@
-namespace BlazorTemplate.Server.Infrastructure;
+namespace BlazorTemplate.Components.Infrastructure;
 
 public interface IStaticAssetService
 {

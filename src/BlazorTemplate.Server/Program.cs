@@ -1,6 +1,6 @@
-using BlazorTemplate.Server.Components;
-using BlazorTemplate.Server.Infrastructure;
+using BlazorTemplate.Components.Infrastructure;
 using BlazorTemplate.Shared.SampleData;
+using Microsoft.AspNetCore.Hosting.StaticWebAssets;
 using Microsoft.FluentUI.AspNetCore.Components;
 
 namespace BlazorTemplate.Server;
@@ -11,12 +11,12 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7165") });
+        StaticWebAssetsLoader.UseStaticWebAssets(builder.Environment, builder.Configuration);
 
+        builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7062") });
 
-        builder.Services.AddRazorComponents()
-            .AddInteractiveServerComponents()
-            .AddInteractiveWebAssemblyComponents();
+        builder.Services.AddRazorPages();
+        builder.Services.AddServerSideBlazor();
 
         builder.Services.AddFluentUIComponents();
         builder.Services.AddFluentUIDemoServices();
@@ -47,11 +47,11 @@ public class Program
         app.UseAuthorization();
 
 
+        app.UseRouting();
         app.MapControllers();
 
-        app.MapRazorComponents<App>()
-            .AddInteractiveServerRenderMode()
-            .AddInteractiveWebAssemblyRenderMode();
+        app.MapBlazorHub();
+        app.MapFallbackToPage("/_Host");
 
         app.Run();
     }

@@ -3,11 +3,11 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Routing;
 using Microsoft.JSInterop;
 
-namespace BlazorTemplate.Server.Components.Layout;
+namespace BlazorTemplate.Components.Layout;
 
 public partial class MainLayout
 {
-    private const string JAVASCRIPT_FILE = "Components/MainLayout.razor.js";
+    private const string JAVASCRIPT_FILE = "./_content/BlazorTemplate.Components/Layout/MainLayout.razor.js";
     private string? _version;
     private bool _mobile;
     private string? _prevUri;

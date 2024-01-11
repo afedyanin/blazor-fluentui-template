@@ -1,6 +1,6 @@
 using Microsoft.FluentUI.AspNetCore.Components;
 
-namespace BlazorTemplate.Server.Components;
+namespace BlazorTemplate.Components.Common;
 
 public partial class SiteSettings
 {

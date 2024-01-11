@@ -1,14 +1,9 @@
 using Microsoft.FluentUI.AspNetCore.Components.Utilities;
 using Microsoft.JSInterop;
 
-namespace BlazorTemplate.Server.Infrastructure;
-public class CacheStorageAccessor : JSModule
+namespace BlazorTemplate.Components.Infrastructure;
+public class CacheStorageAccessor(IJSRuntime js) : JSModule(js, "./_content/BlazorTemplate.Components/js/CacheStorageAccessor.js")
 {
-    public CacheStorageAccessor(IJSRuntime js)
-        : base(js, "js/CacheStorageAccessor.js")
-    {
-    }
-
     public async ValueTask PutAsync(HttpRequestMessage requestMessage, HttpResponseMessage responseMessage)
     {
         var requestMethod = requestMessage.Method.Method;

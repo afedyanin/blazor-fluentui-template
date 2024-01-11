@@ -8,6 +8,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Infrastructure\**" />
+    <Content Remove="Infrastructure\**" />
+    <EmbeddedResource Remove="Infrastructure\**" />
+    <None Remove="Infrastructure\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Pages\Error.cshtml" />
+    <None Include="Pages\_Host.cshtml" />
+    <None Include="Pages\_Layout.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.*-*" />
   </ItemGroup>
@@ -18,6 +31,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BlazorTemplate.Client\BlazorTemplate.Client.csproj" />
+    <ProjectReference Include="..\BlazorTemplate.Components\BlazorTemplate.Components.csproj" />
   </ItemGroup>
 
 </Project>

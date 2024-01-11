@@ -1,4 +1,4 @@
-namespace BlazorTemplate.Shared;
+namespace BlazorTemplate.Shared.SampleData;
 
 public class WeatherForecast
 {

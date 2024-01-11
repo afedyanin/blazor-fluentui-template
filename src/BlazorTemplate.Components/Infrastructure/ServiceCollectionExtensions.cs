@@ -1,4 +1,6 @@
-namespace BlazorTemplate.Server.Infrastructure;
+using Microsoft.Extensions.DependencyInjection;
+
+namespace BlazorTemplate.Components.Infrastructure;
 
 public static class ServiceCollectionExtensions
 {
