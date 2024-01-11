@@ -22,7 +22,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorTemplate.Shared", "sr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorTemplate.Client", "src\BlazorTemplate.Client\BlazorTemplate.Client.csproj", "{D5BD1F25-9A6B-4BD0-9AF2-FECDF8769B1C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorTemplate.Components", "src\BlazorTemplate.Components\BlazorTemplate.Components.csproj", "{DE8F1AC2-42CD-4258-9703-BE8E84595EBC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorTemplate.Components", "src\BlazorTemplate.Components\BlazorTemplate.Components.csproj", "{DE8F1AC2-42CD-4258-9703-BE8E84595EBC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

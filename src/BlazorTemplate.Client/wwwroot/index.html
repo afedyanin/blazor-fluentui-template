@@ -2,37 +2,45 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BlazorTemplate.Client</title>
-    <base href="/" />
-    <link href="_content/BlazorTemplate.Components/css/site.css" rel="stylesheet" />
-    <link href="BlazorTemplate.Client.styles.css" rel="stylesheet" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BlazorTemplate.Client</title>
+  <base href="/" />
+  <link rel="stylesheet" crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/@finos/perspective-viewer/dist/css/themes.css" />
+  <link href="_content/BlazorTemplate.Components/css/site.css" rel="stylesheet" />
+  <link href="BlazorTemplate.Client.styles.css" rel="stylesheet" />
 </head>
 
 <body>
-    <!-- Set the default theme ("mode" overrides the "storage-name") -->
-    <script src="_content/Microsoft.FluentUI.AspNetCore.Components/js/loading-theme.js" type="text/javascript"></script>
-    <loading-theme storage-name="theme"></loading-theme>
-    <!-- End -->
+  <!-- Set the default theme ("mode" overrides the "storage-name") -->
+  <script src="_content/Microsoft.FluentUI.AspNetCore.Components/js/loading-theme.js" type="text/javascript"></script>
+  <loading-theme storage-name="theme"></loading-theme>
+  <!-- End -->
 
-    <div id="app">
-        <svg class="loading-progress">
-            <circle r="40%" cx="50%" cy="50%" />
-            <circle r="40%" cx="50%" cy="50%" />
-        </svg>
-        <div class="loading-progress-text"></div>
-    </div>
+  <div id="app">
+    <svg class="loading-progress">
+      <circle r="40%" cx="50%" cy="50%" />
+      <circle r="40%" cx="50%" cy="50%" />
+    </svg>
+    <div class="loading-progress-text"></div>
+  </div>
 
-    <div id="blazor-error-ui">
-        An unhandled error has occurred.
-        <a href="" class="reload">Reload</a>
-        <a class="dismiss">🗙</a>
-    </div>
-    <script src="_framework/blazor.webassembly.js"></script>
+  <div id="blazor-error-ui">
+    An unhandled error has occurred.
+    <a href="" class="reload">Reload</a>
+    <a class="dismiss">🗙</a>
+  </div>
+  <script src="_framework/blazor.webassembly.js"></script>
 
-    <!-- highlight -->
-    <script type="text/javascript" src="_content/BlazorTemplate.Components/js/highlight-extensions.js"></script>
+  <!-- highlight -->
+  <script type="text/javascript" src="_content/BlazorTemplate.Components/js/highlight-extensions.js"></script>
+
+  <!-- perspective -->
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@finos/perspective/dist/cdn/perspective.js"></script>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@finos/perspective-viewer/dist/cdn/perspective-viewer.js"></script>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@finos/perspective-viewer-datagrid/dist/cdn/perspective-viewer-datagrid.js"></script>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@finos/perspective-viewer-d3fc/dist/cdn/perspective-viewer-d3fc.js"></script>
+
 </body>
 
 </html>
