@@ -1,7 +1,5 @@
 @page "/fetchdata"
 
-@rendermode InteractiveServer
-
 @inject HttpClient Http
 
 <PageTitle>Weather forecast</PageTitle>
@@ -9,6 +7,8 @@
 <h1>Weather forecast</h1>
 
 <p>This component demonstrates fetching data from the server.</p>
+
+<FluentButton OnClick="@StartLoadingAsync" Appearance="Appearance.Accent">Refresh</FluentButton>
 
 @if (forecasts == null)
 {
@@ -44,7 +44,17 @@ else
 @code {
     private WeatherForecast[]? forecasts;
 
-    protected override async Task OnInitializedAsync()
+    protected override Task OnInitializedAsync()
+    {
+        return RefreshData();
+    }
+
+    private Task StartLoadingAsync()
+    {
+        return RefreshData();
+    }
+
+    private async Task RefreshData()
     {
         forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("WeatherForecast");
     }

@@ -13,7 +13,7 @@ public class Program
 
         StaticWebAssetsLoader.UseStaticWebAssets(builder.Environment, builder.Configuration);
 
-        builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7062") });
+        builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:5000") });
 
         builder.Services.AddRazorPages();
         builder.Services.AddServerSideBlazor();
@@ -25,6 +25,16 @@ public class Program
         builder.Services.AddControllers();
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
+
+        builder.Services.AddCors(opts => opts.AddDefaultPolicy(bld =>
+        {
+            bld
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .WithExposedHeaders("*")
+            ;
+        }));
 
         var app = builder.Build();
 
@@ -43,11 +53,10 @@ public class Program
         app.UseHttpsRedirection();
         app.UseStaticFiles();
         app.UseAntiforgery();
-
+        app.UseRouting();
+        app.UseCors();
         app.UseAuthorization();
 
-
-        app.UseRouting();
         app.MapControllers();
 
         app.MapBlazorHub();
