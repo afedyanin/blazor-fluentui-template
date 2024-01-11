@@ -16,6 +16,7 @@ public class Program
 
 
         builder.Services.AddRazorComponents()
+            .AddInteractiveServerComponents()
             .AddInteractiveWebAssemblyComponents();
 
         builder.Services.AddFluentUIComponents();
@@ -50,6 +51,7 @@ public class Program
         app.MapControllers();
 
         app.MapRazorComponents<App>()
+            .AddInteractiveServerRenderMode()
             .AddInteractiveWebAssemblyRenderMode()
             .AddAdditionalAssemblies(typeof(Counter).Assembly);
 

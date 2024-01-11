@@ -31,19 +31,19 @@
                 </FluentAnchor>
             </div>
             <div class="notifications">
-                <NotificationCenter />
+                <NotificationCenter @rendermode=InteractiveServer />
             </div>
             <div class="settings">
-                <SiteSettings />
+                <SiteSettings @rendermode=InteractiveServer />
             </div>
         </FluentHeader>
 
         <FluentStack Class="body-stack" Orientation="Orientation.Horizontal" Width="100%" HorizontalGap="0">
-            <NavMenu />
+            <NavMenu @rendermode=InteractiveServer />
             <FluentBodyContent id="body-content" Style="height: calc(100dvh - 90px);">
                 <div class="content">
                     <article id="article">
-                        <FluentMessageBarProvider Section="@App.MESSAGES_TOP" />
+                        <FluentMessageBarProvider Section="@App.MESSAGES_TOP" @rendermode=InteractiveServer />
                         <CascadingValue Value=@OnRefreshTableOfContents>
                             @Body
                         </CascadingValue>
@@ -52,9 +52,9 @@
                         <ConsoleLog />
                     </aside>
 
-                    <FluentToastProvider MaxToastCount="10" />
-                    <FluentDialogProvider />
-                    <FluentTooltipProvider />
+                    <FluentToastProvider MaxToastCount="10" @rendermode=InteractiveServer />
+                    <FluentDialogProvider @rendermode=InteractiveServer />
+                    <FluentTooltipProvider @rendermode=InteractiveServer />
 
                 </div>
             </FluentBodyContent>

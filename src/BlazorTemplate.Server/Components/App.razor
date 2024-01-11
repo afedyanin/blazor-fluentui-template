@@ -11,7 +11,7 @@
     <link href="css/site.css" rel="stylesheet" />
     <link rel="stylesheet" href="BlazorTemplate.Server.styles.css" />
     <link rel="icon" type="image/png" href="favicon.ico" />
-    <HeadOutlet />
+    <HeadOutlet @rendermode=InteractiveServer />
 </head>
 
 <body>
@@ -20,7 +20,7 @@
     <loading-theme storage-name="theme"></loading-theme>
     <!-- End -->
 
-    <FluentDesignTheme StorageName="theme" />
+    <FluentDesignTheme StorageName="theme" @rendermode=InteractiveServer />
 
     <Routes />
 
