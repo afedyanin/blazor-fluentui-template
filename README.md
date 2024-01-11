@@ -32,5 +32,11 @@ d:\my_project> http-server
 
 
 
+## Resources
+
+- [Keynote: Where Web Tech is Going Now - Steve Sanderson - NDC Porto 2023](https://www.youtube.com/watch?v=fIYYC_p_uU8)
+- [Blazor WebAssembly .NET 7 vs .NET 8 - What's Changed?](https://www.youtube.com/watch?v=2bEhiyqztwg)
+- [Blazor WebAssembly ASP.NET Core Hosted in .NET 8](https://www.youtube.com/watch?v=3Ur79_kHVpo)
+
 
 

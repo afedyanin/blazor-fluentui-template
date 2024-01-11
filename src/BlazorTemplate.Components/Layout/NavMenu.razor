@@ -1,0 +1,45 @@
+<div class="navmenu">
+    <input type="checkbox" title="Menu expand/collapse toggle" id="navmenu-toggle" class="navmenu-icon" />
+    <label for="navmenu-toggle" class="navmenu-icon"><FluentIcon Value="@(new Icons.Regular.Size20.Navigation())" Color="Color.Neutral" /></label>
+    <nav class="sitenav" aria-labelledby="main-menu" onclick="document.getElementById('navmenu-toggle').click()">
+        <FluentNavMenu Id="main-menu" Title="Main menu">
+            <FluentNavLink Icon="@(new Icons.Regular.Size20.Home())" Href="/" Match="NavLinkMatch.All">
+                <h3>Home</h3>
+            </FluentNavLink>
+
+            <FluentNavGroup Expanded="true" Gap="10px" Icon="@(new Icons.Regular.Size20.PersonRunning())">
+                <TitleTemplate><h3>Getting Started</h3></TitleTemplate>
+                <ChildContent>
+                    <FluentNavLink Href="/WhatsNew" Icon="@(new Icons.Regular.Size20.Info())">What's new</FluentNavLink>
+                    <FluentNavGroup Title="Services" Gap="10px" Icon="@(new Icons.Regular.Size20.SettingsCogMultiple())">
+                        <FluentNavLink Href="/DialogService" Icon="@(new Icons.Regular.Size20.AppGeneric())">DialogService</FluentNavLink>
+                        <FluentNavLink Href="/MessageService" Icon="@(new Icons.Regular.Size20.WindowHeaderHorizontal())">MessageService</FluentNavLink>
+                        <FluentNavLink Href="/ToastService" Icon="@(new Icons.Regular.Size20.FoodToast())">ToastService</FluentNavLink>
+                    </FluentNavGroup>
+                </ChildContent>
+            </FluentNavGroup>
+
+            <FluentNavGroup Gap="10px" Icon="@(new Icons.Regular.Size20.PuzzleCubePiece())">
+                <TitleTemplate><h3>Components</h3></TitleTemplate>
+                <ChildContent>
+                    <FluentNavLink Href="/Dialog" Icon="@(new Icons.Regular.Size20.AppGeneric())">Dialog</FluentNavLink>
+                    <FluentNavLink Href="/MessageBar" Icon="@(new Icons.Regular.Size20.WindowHeaderHorizontal())">MessageBar</FluentNavLink>
+                    <FluentNavLink Href="/MessageBox" Icon="@(new Icons.Regular.Size20.MegaphoneLoud())">MessageBox</FluentNavLink>
+                    <FluentNavLink Href="/Panel" Icon="@(new Icons.Regular.Size20.PanelRight())">Panel</FluentNavLink>
+                    <FluentNavLink Href="/Toast" Icon="@(new Icons.Regular.Size20.FoodToast())">Toast</FluentNavLink>
+                </ChildContent>
+            </FluentNavGroup>
+
+            <FluentNavGroup Gap="10px" Icon="@(new Icons.Regular.Size20.Sanitize())">
+                <TitleTemplate><h3>Samples</h3></TitleTemplate>
+                <ChildContent>
+                    <FluentNavLink Href="/counter" Icon="@(new Icons.Regular.Size20.NumberSymbolSquare())" IconColor="Color.Accent">Counter</FluentNavLink>
+                    <FluentNavLink Href="/weather" Icon="@(new Icons.Regular.Size20.WeatherPartlyCloudyDay())" IconColor="Color.Accent">Weather</FluentNavLink>
+                    <FluentNavLink Href="/fetchdata" Icon="@(new Icons.Regular.Size20.WeatherPartlyCloudyDay())" IconColor="Color.Accent">Fetch Data</FluentNavLink>
+                    <FluentNavLink Href="/remote-data" Icon="@(new Icons.Regular.Size20.WeatherPartlyCloudyDay())" IconColor="Color.Accent">Fetch Remote Data</FluentNavLink>
+                </ChildContent>
+            </FluentNavGroup>
+
+        </FluentNavMenu>
+    </nav>
+</div>
