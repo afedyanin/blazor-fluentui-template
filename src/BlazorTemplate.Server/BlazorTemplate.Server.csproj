@@ -30,7 +30,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BlazorTemplate.Client\BlazorTemplate.Client.csproj" />
     <ProjectReference Include="..\BlazorTemplate.Components\BlazorTemplate.Components.csproj" />
   </ItemGroup>
 

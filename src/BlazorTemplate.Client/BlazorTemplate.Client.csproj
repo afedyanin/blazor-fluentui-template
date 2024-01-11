@@ -2,25 +2,41 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <NoDefaultLaunchSettingsFile>true</NoDefaultLaunchSettingsFile>
-    <StaticWebAssetProjectMode>Default</StaticWebAssetProjectMode>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.*-*" PrivateAssets="all" />
-    <PackageReference Include="Microsoft.FluentUI.AspNetCore.Components" Version="4.*-* " />
-    <PackageReference Include="Microsoft.FluentUI.AspNetCore.Components.Icons" Version="4.*-* " />
+    <Content Remove="Properties\launchSettings.json" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BlazorTemplate.Shared\BlazorTemplate.Shared.csproj" />
+    <_WebToolingArtifacts Remove="Properties\launchSettings.json" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\" />
+    <None Include="Properties\launchSettings.json">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly"  Version="8.*-*" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" PrivateAssets="all"  Version="8.*-*" />
+  </ItemGroup>
+
+  <!-- For WASM, Trim Icons and Emojis Libs, -->
+  <!-- but not Core and Shared libs -->
+  <ItemGroup>
+    <TrimmerRootAssembly Include="Microsoft.FluentUI.AspNetCore.Components" />
+    <TrimmerRootAssembly Include="BlazorTemplate.Components" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BlazorTemplate.Components\BlazorTemplate.Components.csproj" />
   </ItemGroup>
 
 </Project>
