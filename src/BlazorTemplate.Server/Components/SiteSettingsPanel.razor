@@ -1,4 +1,4 @@
-﻿@implements IDialogContentComponent
+@implements IDialogContentComponent
 
 <div>
     <FluentDesignTheme @bind-Mode="@Mode"
@@ -15,16 +15,7 @@
         <FluentSelect Label="Color"
                       Style="margin-bottom: 30px;"
                       Items="@AllOfficeColors"
-                      Height="200px"
                       @bind-SelectedOption="@OfficeColor">
-            <OptionTemplate>
-                <FluentStack>
-                    <FluentIcon Value="@(new Icons.Filled.Size20.RectangleLandscape())"
-                                Color="Color.Custom"
-                                CustomColor="@context.ToAttributeValue()" />
-                    <FluentLabel>@context</FluentLabel>
-                </FluentStack>
-            </OptionTemplate>
         </FluentSelect>
 
         <FluentSwitch Label="Direction"

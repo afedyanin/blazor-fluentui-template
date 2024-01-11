@@ -5,7 +5,7 @@ namespace BlazorTemplate.Server.Infrastructure;
 public class CacheStorageAccessor : JSModule
 {
     public CacheStorageAccessor(IJSRuntime js)
-        : base(js, "./_content/FluentUI.Demo.Shared/js/CacheStorageAccessor.js")
+        : base(js, "js/CacheStorageAccessor.js")
     {
     }
 

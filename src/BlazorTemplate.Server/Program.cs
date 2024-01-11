@@ -1,4 +1,3 @@
-using BlazorTemplate.Client.Pages;
 using BlazorTemplate.Server.Components;
 using BlazorTemplate.Server.Infrastructure;
 using BlazorTemplate.Shared.SampleData;
@@ -52,8 +51,7 @@ public class Program
 
         app.MapRazorComponents<App>()
             .AddInteractiveServerRenderMode()
-            .AddInteractiveWebAssemblyRenderMode()
-            .AddAdditionalAssemblies(typeof(Counter).Assembly);
+            .AddInteractiveWebAssemblyRenderMode();
 
         app.Run();
     }

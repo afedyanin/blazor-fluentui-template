@@ -24,13 +24,7 @@ public partial class SiteSettingsPanel
 
     private IEnumerable<DesignThemeModes> AllModes => Enum.GetValues<DesignThemeModes>();
 
-    private IEnumerable<OfficeColor?> AllOfficeColors
-    {
-        get
-        {
-            return Enum.GetValues<OfficeColor>().Select(i => (OfficeColor?)i).Union(new[] { (OfficeColor?)null });
-        }
-    }
+    private IEnumerable<OfficeColor?> AllOfficeColors => Enum.GetValues<OfficeColor>().Select(i => (OfficeColor?)i);
 
     private async Task RemoveAllCache()
     {

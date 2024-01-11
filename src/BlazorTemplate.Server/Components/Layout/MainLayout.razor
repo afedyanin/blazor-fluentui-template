@@ -49,7 +49,7 @@
                         </CascadingValue>
                     </article>
                     <aside>
-                        <ConsoleLog />
+                        <ConsoleLog @rendermode=InteractiveServer />
                     </aside>
 
                     <FluentToastProvider MaxToastCount="10" @rendermode=InteractiveServer />
@@ -78,12 +78,7 @@
 </div>
 
 <div id="blazor-error-ui">
-    <environment include="Staging,Production">
-        An error has occurred. This application may no longer respond until reloaded.
-    </environment>
-    <environment include="Development">
-        An unhandled exception has occurred. See browser dev tools for details.
-    </environment>
+    <p>An error has occurred. This application may no longer respond until reloaded.</p>
     <a href="" class="reload">Reload</a>
     <a class="dismiss">🗙</a>
 </div>

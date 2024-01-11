@@ -1,6 +1,6 @@
-﻿async function openCacheStorage() {
+async function openCacheStorage() {
     try {
-        return await window.caches.open("FluentUI.Demo")
+        return await window.caches.open("BlazorTemplate.Demo")
     }
     catch (err) {
         return undefined;
