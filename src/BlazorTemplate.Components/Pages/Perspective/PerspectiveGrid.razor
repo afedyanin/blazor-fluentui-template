@@ -1,0 +1,17 @@
+<div style="width:100%; position:relative">
+    <FluentLabel Typo="Typography.Subject" Alignment="HorizontalAlignment.Center" Weight="FontWeight.Bold" Color="Color.Accent">@TableName</FluentLabel>
+    <perspective-viewer @ref="perspectiveViewer" class="rtv-viewer-grid"> </perspective-viewer>
+</div>
+
+<style>
+    .rtv-viewer-grid {
+        position : absolute;
+        top: 25px;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        height: @Height;
+    }
+</style>
+
+

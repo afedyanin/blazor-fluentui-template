@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BlazorTemplate.Server</title>
     <base href="~/" />
+    <link rel="stylesheet" crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/@@finos/perspective-viewer/dist/css/themes.css" />
     <link href="BlazorTemplate.Server.styles.css" rel="stylesheet" />
     <link href="_content/BlazorTemplate.Components/css/site.css" rel="stylesheet" />
     <component type="typeof(HeadOutlet)" render-mode="ServerPrerendered" />
@@ -35,5 +36,12 @@
 
     <!-- highlight -->
     <script type="text/javascript" src="_content/BlazorTemplate.Components/js/highlight-extensions.js"></script>
+
+    <!-- perspective -->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@@finos/perspective/dist/cdn/perspective.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@@finos/perspective-viewer/dist/cdn/perspective-viewer.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@@finos/perspective-viewer-datagrid/dist/cdn/perspective-viewer-datagrid.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@@finos/perspective-viewer-d3fc/dist/cdn/perspective-viewer-d3fc.js"></script>
+
 </body>
 </html>
