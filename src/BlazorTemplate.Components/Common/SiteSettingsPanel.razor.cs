@@ -63,7 +63,7 @@ public partial class SiteSettingsPanel
         Logger.LogInformation(msg);
         _status = msg;
 
-        OfficeColor = Microsoft.FluentUI.AspNetCore.Components.OfficeColor.Random;
+        OfficeColor = Microsoft.FluentUI.AspNetCore.Components.OfficeColor.Office;
         Mode = DesignThemeModes.System;
 
         //StateHasChanged();

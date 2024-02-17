@@ -29,7 +29,7 @@ public partial class PerspectiveGrid : IAsyncDisposable
     private IJSRuntime JSRuntime { get; set; } = default!;
 
     [Inject]
-    private HttpClient Http { get; set; } = default;
+    private HttpClient Http { get; set; }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
