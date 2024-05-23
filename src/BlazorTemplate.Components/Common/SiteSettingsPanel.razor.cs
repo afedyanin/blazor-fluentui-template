@@ -2,6 +2,7 @@ using BlazorTemplate.Components.Infrastructure;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Logging;
 using Microsoft.FluentUI.AspNetCore.Components;
+using Microsoft.FluentUI.AspNetCore.Components.Extensions;
 
 namespace BlazorTemplate.Components.Common;
 
@@ -29,14 +30,6 @@ public partial class SiteSettingsPanel
 
     private static IEnumerable<DesignThemeModes> AllModes => Enum.GetValues<DesignThemeModes>();
 
-    private static IEnumerable<OfficeColor?> AllOfficeColors
-    {
-        get
-        {
-            return Enum.GetValues<OfficeColor>().Select(i => (OfficeColor?)i);
-        }
-    }
-
     protected override void OnAfterRender(bool firstRender)
     {
         if (firstRender)
@@ -51,6 +44,16 @@ public partial class SiteSettingsPanel
 
         _ltr = isLeftToRight;
         Direction = isLeftToRight ? LocalizationDirection.LeftToRight : LocalizationDirection.RightToLeft;
+    }
+
+    private static string? GetCustomColor(OfficeColor? color)
+    {
+        return color switch
+        {
+            null => OfficeColorUtilities.GetRandom(true).ToAttributeValue(),
+            Microsoft.FluentUI.AspNetCore.Components.OfficeColor.Default => "#036ac4",
+            _ => color.ToAttributeValue(),
+        };
     }
 
     private async Task ResetSite()
