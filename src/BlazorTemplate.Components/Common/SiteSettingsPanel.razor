@@ -1,4 +1,4 @@
-﻿@implements IDialogContentComponent
+@implements IDialogContentComponent
 
 <div>
     <FluentDesignTheme @ref=_theme
@@ -17,14 +17,14 @@
         <FluentSelect Label="Color"
                       Style="margin-bottom: 30px;"
                       Width="100%"
-                      Items="@AllOfficeColors"
+                      Items="@(OfficeColorUtilities.AllColors.Cast<OfficeColor?>())"
                       Height="200px"
                       @bind-SelectedOption="@OfficeColor">
             <OptionTemplate>
                 <FluentStack>
                     <FluentIcon Value="@(new Icons.Filled.Size20.RectangleLandscape())"
                                 Color="Color.Custom"
-                                CustomColor="@(@context.ToAttributeValue() != "default" ? context.ToAttributeValue() : "#036ac4" )" />
+                                CustomColor="@GetCustomColor(@context)" />
                     <FluentLabel>@context</FluentLabel>
                 </FluentStack>
             </OptionTemplate>
