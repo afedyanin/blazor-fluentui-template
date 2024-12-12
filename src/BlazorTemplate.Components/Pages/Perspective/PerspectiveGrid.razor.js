@@ -1,7 +1,7 @@
 import perspective from "https://cdn.jsdelivr.net/npm/@finos/perspective/dist/cdn/perspective.js";
 
 export async function loadJson(schema, data, view) {
-  const worker = perspective.worker();
+  const worker = await perspective.worker();
   const table = await worker.table(schema);
   table.update(data);
   view.load(table);
