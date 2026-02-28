@@ -1,0 +1,12 @@
+<Solution>
+  <Folder Name="/common/">
+    <File Path=".editorconfig" />
+    <File Path=".gitignore" />
+    <File Path="CHANGELOG.md" />
+    <File Path="Directory.Build.props" />
+    <File Path="README.md" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/FluentTemplate.BlazorApp/FluentTemplate.BlazorApp.csproj" Id="ab91e1da-841c-41f4-99cb-a12fefcafd1c" />
+  </Folder>
+</Solution>
