@@ -8,5 +8,6 @@
   </Folder>
   <Folder Name="/src/">
     <Project Path="src/FluentTemplate.BlazorApp/FluentTemplate.BlazorApp.csproj" Id="ab91e1da-841c-41f4-99cb-a12fefcafd1c" />
+    <Project Path="src/FluentTemplate.Components/FluentTemplate.Components.csproj" Id="d0d8a4be-b708-49d0-943c-b4c004fd913b" />
   </Folder>
 </Solution>

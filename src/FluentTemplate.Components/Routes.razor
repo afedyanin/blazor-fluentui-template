@@ -1,0 +1,12 @@
+@using FluentTemplate.Components
+@using FluentTemplate.Components.Pages
+
+<Router AppAssembly="typeof(Pages.Home).Assembly" NotFoundPage="typeof(FluentTemplate.Components.Pages.NotFound)">
+    <Found Context="routeData">
+        <AuthorizeRouteView RouteData="routeData" DefaultLayout="typeof(FluentTemplate.Components.Layout.MainLayout)">
+            <NotAuthorized>
+                <h3>NotAuthorized</h3>
+            </NotAuthorized>
+        </AuthorizeRouteView>
+    </Found>
+</Router>
