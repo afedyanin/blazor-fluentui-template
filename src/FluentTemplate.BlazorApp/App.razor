@@ -1,6 +1,3 @@
-@using FluentTemplate.Components.Layout
-@using Microsoft.AspNetCore.Http
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <base href="/" />
     <ResourcePreloader />
-    <link rel="stylesheet" href="@Assets["app.css"]" />
-    <link rel="stylesheet" href="@Assets["FluentTemplate.Comonents.styles.css"]" />
+    <link rel="stylesheet" href="@Assets["_content/Microsoft.FluentUI.AspNetCore.Components/css/reboot.css"]" />
+    <link rel="stylesheet" href="@Assets["_content/FluentTemplate.Components/app.css"]" />
+    <link rel="stylesheet" href="@Assets["FluentTemplate.BlazorApp.styles.css"]" />
     <ImportMap />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <HeadOutlet @rendermode="PageRenderMode" />
