@@ -2,11 +2,14 @@ namespace FluentTemplate.Components.Infrastructure;
 
 public class AppStateService
 {
-    // Event that components can subscribe to
-    public event EventHandler? OnUnauthorized;
+#pragma warning disable CA1003 // Use generic event handler instances
+    public event Action? OnUnauthorized;
+#pragma warning restore CA1003 // Use generic event handler instances
+
+    public Guid Id { get; } = Guid.NewGuid();
 
     public void NotifyUnauthorized()
     {
-        OnUnauthorized?.Invoke(this, EventArgs.Empty);
+        OnUnauthorized?.Invoke();
     }
 }

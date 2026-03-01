@@ -4,10 +4,10 @@ namespace FluentTemplate.Components.AccessControl;
 
 public class UnauthorizedHandler : DelegatingHandler
 {
-    private readonly AppStateService _appStateService;
+    private readonly AppStateService _appState;
     public UnauthorizedHandler(AppStateService appStateService)
     {
-        _appStateService = appStateService;
+        _appState = appStateService;
     }
 
     protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
@@ -16,7 +16,7 @@ public class UnauthorizedHandler : DelegatingHandler
 
         if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
         {
-            _appStateService.NotifyUnauthorized();
+            _appState.NotifyUnauthorized();
         }
 
         return response;

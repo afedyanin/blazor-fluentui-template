@@ -35,7 +35,7 @@
         AppState.OnUnauthorized += HandleUnauthorized;
     }
 
-    private void HandleUnauthorized(object? sender, EventArgs e)
+    private void HandleUnauthorized()
     {
         Nav.NavigateTo("unauthorized", forceLoad: true);
     }
