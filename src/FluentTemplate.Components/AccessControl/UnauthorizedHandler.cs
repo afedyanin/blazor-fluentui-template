@@ -8,6 +8,7 @@ public class UnauthorizedHandler : DelegatingHandler
     public UnauthorizedHandler(AppStateService appStateService)
     {
         _appState = appStateService;
+        Console.WriteLine($"_appState.Id={_appState.Id}");
     }
 
     protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)

@@ -1,6 +1,9 @@
 @page "/weather"
+@using FluentTemplate.Components.Infrastructure
+@implements IDisposable
 @inject IHttpClientFactory ClientFactory
 @inject NavigationManager _navigationManager;
+@inject AppStateService AppState
 
 <PageTitle>Weather</PageTitle>
 
@@ -22,6 +25,8 @@ else
     </FluentDataGrid>
 }
 
+<h3>AppState=@AppState.Id.ToString()</h3>
+
 @code {
     private IQueryable<WeatherForecast>? forecasts;
 
@@ -29,9 +34,22 @@ else
     {
         if (firstRender)
         {
+            AppState.OnUnauthorized += HandleUnauthorized;
             var client = ClientFactory.CreateClient("api");
             var items = await client.GetFromJsonAsync<WeatherForecast[]>("/api/weather");
             forecasts = items!.AsQueryable<WeatherForecast>();
         }
     }
+
+    private void HandleUnauthorized()
+    {
+        _navigationManager.NavigateTo("unauthorized", forceLoad: true);
+    }
+
+    public void Dispose()
+    {
+        // Unsubscribe to prevent memory leaks
+        AppState.OnUnauthorized -= HandleUnauthorized;
+    }
+
 }

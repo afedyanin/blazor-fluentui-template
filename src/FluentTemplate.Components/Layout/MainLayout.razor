@@ -1,8 +1,5 @@
 @using FluentTemplate.Components.Infrastructure
-@implements IDisposable
 @inherits LayoutComponentBase
-@inject AppStateService AppState
-@inject NavigationManager Nav
 
 <FluentLayout>
     <FluentHeader>
@@ -29,22 +26,5 @@
     <span class="dismiss">🗙</span>
 </div>
 
-@code {
-    protected override void OnInitialized()
-    {
-        AppState.OnUnauthorized += HandleUnauthorized;
-    }
-
-    private void HandleUnauthorized()
-    {
-        Nav.NavigateTo("unauthorized", forceLoad: true);
-    }
-
-    public void Dispose()
-    {
-        // Unsubscribe to prevent memory leaks
-        AppState.OnUnauthorized -= HandleUnauthorized;
-    }
-}
 
 
