@@ -1,4 +1,5 @@
 using FluentTemplate.Shared;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FluentTemplate.BlazorApp.Controllers;
@@ -8,6 +9,7 @@ namespace FluentTemplate.BlazorApp.Controllers;
 
 public class WeatherController : ControllerBase
 {
+    [Authorize()]
     [HttpGet()]
     public async Task<IActionResult> GetWeather()
     {

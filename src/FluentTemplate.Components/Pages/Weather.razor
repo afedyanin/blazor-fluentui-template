@@ -1,5 +1,6 @@
 @page "/weather"
 @inject IHttpClientFactory ClientFactory
+@inject NavigationManager _navigationManager;
 
 <PageTitle>Weather</PageTitle>
 
@@ -24,13 +25,13 @@ else
 @code {
     private IQueryable<WeatherForecast>? forecasts;
 
-    protected override async Task OnInitializedAsync()
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        // Simulate asynchronous loading to demonstrate a loading indicator
-        await Task.Delay(500);
-
-        var client = ClientFactory.CreateClient("api");
-        var items = await client.GetFromJsonAsync<WeatherForecast[]>("/api/weather");
-        forecasts = items!.AsQueryable<WeatherForecast>();
+        if (firstRender)
+        {
+            var client = ClientFactory.CreateClient("api");
+            var items = await client.GetFromJsonAsync<WeatherForecast[]>("/api/weather");
+            forecasts = items!.AsQueryable<WeatherForecast>();
+        }
     }
 }

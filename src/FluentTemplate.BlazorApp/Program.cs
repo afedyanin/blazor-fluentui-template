@@ -1,3 +1,5 @@
+using FluentTemplate.Components.AccessControl;
+using FluentTemplate.Components.Infrastructure;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.FluentUI.AspNetCore.Components;
 
@@ -25,12 +27,19 @@ public static class Program
 
         builder.Services.AddControllers();
 
+
+        builder.Services.AddScoped<AppStateService>();
+        builder.Services.AddTransient<UnauthorizedHandler>();
+
         builder.Services.AddHttpClient("api", client =>
         {
             client.BaseAddress = new Uri("https://localhost:7279/");
-        });
+        }).AddHttpMessageHandler<UnauthorizedHandler>();
 
         var app = builder.Build();
+
+        app.UseAuthentication();
+        app.UseAuthorization();
 
         // Configure the HTTP request pipeline.
         app.UseExceptionHandler("/Error");

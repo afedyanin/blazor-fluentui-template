@@ -1,0 +1,13 @@
+@page "/unauthorized"
+
+@using Microsoft.AspNetCore.Authorization
+
+<PageTitle>Unaothorized</PageTitle>
+
+<AuthorizeView>
+    Hello @context.User.Identity?.Name!
+</AuthorizeView>
+
+<h2>You are not authorized to view this content.</h2>
+
+
