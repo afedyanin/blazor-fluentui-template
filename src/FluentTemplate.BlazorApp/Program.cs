@@ -23,6 +23,13 @@ public static class Program
             })
             .AddIdentityCookies();
 
+        builder.Services.AddControllers();
+
+        builder.Services.AddHttpClient("api", client =>
+        {
+            client.BaseAddress = new Uri("https://localhost:7279/");
+        });
+
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
@@ -40,6 +47,8 @@ public static class Program
         app.MapRazorComponents<App>()
             .AddInteractiveServerRenderMode()
             .AddAdditionalAssemblies(typeof(Components.Pages.Home).Assembly);
+
+        app.MapControllers();
 
         app.Run();
     }

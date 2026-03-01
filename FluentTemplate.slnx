@@ -9,5 +9,6 @@
   <Folder Name="/src/">
     <Project Path="src/FluentTemplate.BlazorApp/FluentTemplate.BlazorApp.csproj" Id="ab91e1da-841c-41f4-99cb-a12fefcafd1c" />
     <Project Path="src/FluentTemplate.Components/FluentTemplate.Components.csproj" Id="d0d8a4be-b708-49d0-943c-b4c004fd913b" />
+    <Project Path="src/FluentTemplate.Shared/FluentTemplate.Shared.csproj" Id="7f769792-7752-4c76-be4b-c9588ee061ce" />
   </Folder>
 </Solution>
