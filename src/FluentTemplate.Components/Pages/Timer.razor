@@ -1,0 +1,47 @@
+@page "/timer"
+@using Microsoft.Extensions.Logging
+
+<h3>Текущее время: @_currentTime</h3>
+
+@code {
+    [Inject]
+    private ILogger<Timer> Logger { get; set; } = default!;
+
+    private string _currentTime = "";
+
+    protected override Task OnInitializedAsync()
+    {
+        _ = Task.Run(async () =>
+        {
+            var id = Guid.NewGuid();
+            Logger.LogInformation($"Starting task id={id} ThreadId={Environment.CurrentManagedThreadId}");
+
+            while (true)
+            {
+                //_currentTime = DateTime.UtcNow.ToString("HH:mm:ss");
+                //await InvokeAsync(StateHasChanged);
+                await Task.Delay(1000);
+            }
+        });
+
+        return base.OnInitializedAsync();
+    }
+
+    /* Basic */
+
+    /*
+    protected override Task OnInitializedAsync()
+    {
+        _ = Task.Run(async () =>
+        {
+            while (true)
+            {
+                _currentTime = DateTime.UtcNow.ToString("HH:mm:ss");
+                await Task.Delay(1000);
+            }
+        });
+
+        return base.OnInitializedAsync();
+    }
+    */
+}
