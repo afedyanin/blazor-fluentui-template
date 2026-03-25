@@ -13,13 +13,14 @@
     {
         _ = Task.Run(async () =>
         {
-            var id = Guid.NewGuid();
-            Logger.LogInformation($"Starting task id={id} ThreadId={Environment.CurrentManagedThreadId}");
+            //var id = Guid.NewGuid();
+            //Logger.LogInformation($"Starting task id={id} ThreadId={Environment.CurrentManagedThreadId}");
 
             while (true)
             {
-                //_currentTime = DateTime.UtcNow.ToString("HH:mm:ss");
-                //await InvokeAsync(StateHasChanged);
+                _currentTime = DateTime.UtcNow.ToString("HH:mm:ss");
+                await InvokeAsync(StateHasChanged);
+                //StateHasChanged();
                 await Task.Delay(1000);
             }
         });
